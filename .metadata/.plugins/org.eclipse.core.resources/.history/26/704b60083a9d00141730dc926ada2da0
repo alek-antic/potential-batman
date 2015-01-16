@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Labyrinth runner = new Labyrinth("test3.txt");
+		System.out.println(runner);
+	}
+
+}

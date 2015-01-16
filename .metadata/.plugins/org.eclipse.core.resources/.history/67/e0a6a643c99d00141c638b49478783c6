@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Squeeze {
+
+	private String data;
+	public Squeeze(String filename) {
+		data = readData(filename);
+	}
+	
+	public String readData(String filename) {
+		FileReader reader;
+		String output = "";
+		
+		try {
+			reader = new FileReader(filename);
+			Scanner in = new Scanner(reader);
+			in.useDelimiter("\\s+");
+			while(in.hasNext()) {
+				output += in.next();
+			}
+		} catch (IOException e) {
+			System.out.println("Error reading file!");
+		}
+		
+		return output;
+	}
+	
+	public String toString() {
+		return data;
+	}
+}

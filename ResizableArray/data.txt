@@ -1,0 +1,66 @@
+
+1)Efficiency Test Results for my ResizableArray:
+
+
+10,000:
+The test took 498 milliseconds.
+And 43256 bytes of memory.
+
+100,000:
+The test took 54881 milliseconds.
+And 2007960 bytes of memory.
+
+2)Efficiency Test Results for Library ArrayList:
+
+10,000:
+The test took 44 milliseconds.
+And 47280 bytes of memory.
+
+
+100,000:
+The test took 3748 milliseconds.
+And 2271816 bytes of memory.
+
+3) Non-random Add, Insert Remove Test:
+
+Prediction for 100,000:
+This test took 3881 milliseconds.
+And 2007960 bytes of memory.
+
+This test should take a similar amount of time and memory to the
+random test results because, though there are fewer method calls,
+the if statement requires time to go through.
+
+
+Actual Result:
+The test took 7784 milliseconds.
+And 2473136 bytes of memory.
+
+The add test should take a similar amount of time. However, insert
+and remove should take longer because each time one of them is called,
+all the other pieces of data get shifted over, which takes a lot 
+longer than shifting a random amount of numbers each time. This 
+also makes up for the time lost in the Math.random() method calls.
+
+
+4) Add, Remove, Insert from the end of the ArrayList test:
+
+Predicted for 100,000:
+This test took: 3881 milliseconds
+And 200000 bytes of memory.
+
+This is because the methods don't have to shift over every element 
+every single time. However, there is a method call each time, so there
+may be time loss.
+
+
+Actual Result:
+The test took 19 milliseconds.
+And 2381264 bytes of memory.
+
+This test took a similar amount of bytes as the other test, but was
+much faster than the first test. This is due to the fact that the program
+doesn't have to move every single piece of data over every single time. 
+This process is extremely slow because you have to copy 100000 pieces of 
+data each time, which adds up a lot of milliseconds.
+

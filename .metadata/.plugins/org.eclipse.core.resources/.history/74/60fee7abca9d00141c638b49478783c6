@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Squeeze s = new Squeeze("squeeze.txt");
+		System.out.println(s);
+	}
+
+}

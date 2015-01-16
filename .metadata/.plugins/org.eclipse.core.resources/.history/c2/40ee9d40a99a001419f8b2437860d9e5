@@ -1,0 +1,9 @@
+
+public abstract class Main {
+
+	public static void main(String[] args) {
+		Maze runner = new Maze("mazeData.txt");
+		System.out.println(runner);
+	}
+
+}
