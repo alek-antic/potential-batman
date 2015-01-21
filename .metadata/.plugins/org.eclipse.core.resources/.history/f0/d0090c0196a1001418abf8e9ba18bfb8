@@ -27,14 +27,14 @@ public class Squeeze {
 	}
 	
 	public void squeeze() {
-		for(int j = 0; j < data.length; j++){
+		for(String s : data) {
 			int spaces = 0;
-			for(int i = 0; i < data[j].length() - 1 && Character.isWhitespace(data[j].charAt(i)); i++) {
-				if(Character.isWhitespace(data[j].charAt(i))) {
+			for(int i = 0; i < s.length() || !Character.isWhitespace(s.charAt(i)); i++) {
+				if(Character.isWhitespace(s.charAt(i))) {
 					spaces++;
 				}
 			}
-			data[j] = spaces + data[j].substring(spaces);
+			s = s.substring(spaces);
 		}
 	}
 	

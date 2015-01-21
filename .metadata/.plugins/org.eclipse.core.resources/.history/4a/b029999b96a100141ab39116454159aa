@@ -29,7 +29,7 @@ public class Squeeze {
 	public void squeeze() {
 		for(int j = 0; j < data.length; j++){
 			int spaces = 0;
-			for(int i = 0; i < data[j].length() - 1 && Character.isWhitespace(data[j].charAt(i)); i++) {
+			for(int i = 0; i < data[j].length() - 1 && !Character.isWhitespace(data[j].charAt(i)); i++) {
 				if(Character.isWhitespace(data[j].charAt(i))) {
 					spaces++;
 				}

@@ -3,12 +3,12 @@ import java.util.*;
 
 public class Squeeze {
 
-	private String[] data;
+	private String data;
 	public Squeeze(String filename) {
 		data = readData(filename);
 	}
 	
-	public String[] readData(String filename) {
+	public String readData(String filename) {
 		FileReader reader;
 		String output = "";
 		
@@ -23,27 +23,27 @@ public class Squeeze {
 			System.out.println("Error reading file!");
 		}
 		
-		return output.split("\n");
+		return output;
 	}
 	
 	public void squeeze() {
-		for(int j = 0; j < data.length; j++){
+		String copy = "";
+		int temp = 0;
+		for(int i = data.indexOf('\n'); i != -1; i = data.indexOf('\n', i+1)) {
 			int spaces = 0;
-			for(int i = 0; i < data[j].length() - 1 && Character.isWhitespace(data[j].charAt(i)); i++) {
-				if(Character.isWhitespace(data[j].charAt(i))) {
+			int j = 0;
+			for(j = temp + 1; j < i || data.charAt(j) != ' '; j++) {
+				if(data.charAt(j) == ' ')
 					spaces++;
-				}
 			}
-			data[j] = spaces + data[j].substring(spaces);
+			System.out.println(j);
+			copy += spaces + data.substring(temp+spaces, i) + "\n";
+			temp = i;
 		}
+		data = copy;
 	}
 	
 	public String toString() {
-		String output = "";
-		
-		for(String s : data) {
-			output += s + '\n';
-		}
-		return output;
+		return data;
 	}
 }
