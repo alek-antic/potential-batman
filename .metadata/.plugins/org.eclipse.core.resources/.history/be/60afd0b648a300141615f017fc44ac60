@@ -1,0 +1,10 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FileIO {
+
+	public String readFile(String filename) {
+		FileReader reader = new FileReader(filename);
+		Scanner in = new Scanner(reader);
+	}
+}

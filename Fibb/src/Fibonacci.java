@@ -11,6 +11,9 @@ public class Fibonacci {
 
 	//20th Fibonacci number is 6765
     public static int computeFibonacci(int x) {
+    	if(x < 0) {
+    		throw new IllegalArgumentException("Input must be positive");
+    	}
     	if (x <= 1) {
     		return x;
     	} else {
@@ -21,21 +24,24 @@ public class Fibonacci {
     }
 
 	public static void main (String[] args) {
-		Scanner kboard = new Scanner (System.in);
-		System.out.print("Which fibonacci number would you like to find? --> ");
-		try{
-			int x = kboard.nextInt();
-			int answer = computeFibonacci(x);
-			System.out.println ("The " + x + " fibonacci number is " + answer + ".");
-		} catch (InputMismatchException ex) {
-			System.out.println("Bad input.");
-		} catch (StackOverflowError ex) {
-			System.out.println("Infinte Loop");
-		} catch (IllegalArgumentException ex) {
-			System.out.println("U R D U M B");
-		} catch (Exception ex) {
-			System.out.println("Something went wrong.");
-		}
+		boolean success = false;
+		int answer = 0, x = 0;
+		do {
+			try{
+				Scanner kboard = new Scanner (System.in);
+				System.out.print("Which fibonacci number would you like to find? --> ");
+				 x = kboard.nextInt();
+				answer = computeFibonacci(x);
+				success = true;
+				System.out.println ("The " + x + " fibonacci number is " + answer + ".");
+			} catch (IllegalArgumentException ex) {
+				System.out.println();
+			} catch (StackOverflowError ex) {
+				System.out.println("Your number is too big!");
+			} catch (InputMismatchException ex){
+				System.out.println("Not an integer!");
+			}
+		}while(!success);
 	}
 
 }

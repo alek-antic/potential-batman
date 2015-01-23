@@ -16,6 +16,7 @@
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="EraseObject"/>
-<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FileIO {
+
+	public String readFile(String filename) {
+		
+		FileReader reader;
+		String fileData = "";
+		try {
+			
+			reader = new FileReader(filename);
+			Scanner in = new Scanner(reader);
+			
+		
+			
+			while(in.hasNextLine()) {
+				String input = in.nextLine();
+				fileData += input;
+			}
+			
+			return fileData;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return fileData;
+	}
+}

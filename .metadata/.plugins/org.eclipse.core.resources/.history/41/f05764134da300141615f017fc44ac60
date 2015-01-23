@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		FileIO f = new FileIO();
+		String[] = f.readFile("squeeze.txt").split(reader.lineSeparator);
+	}
+
+}
