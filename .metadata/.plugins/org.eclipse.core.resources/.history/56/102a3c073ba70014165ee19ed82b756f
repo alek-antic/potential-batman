@@ -1,0 +1,12 @@
+
+public class MovieLens100KTranslator {
+
+	public User lineToUser(String line) {
+		return new User();
+	}
+	
+	public Movie lineToMovie(String line) {
+		return new Movie();
+	}
+	
+}
