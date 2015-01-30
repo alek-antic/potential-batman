@@ -1,0 +1,31 @@
+
+public class MovieLens100KTranslator {
+
+	public User lineToUser(String line) {
+		return null;
+	}
+	
+	public Movie lineToMovie(String line) {
+		String sorted[] = line.split("\\|");
+		for(String s : sorted) {
+			s.replaceAll("|", "");
+		}
+		int id = Integer.parseInt(sorted[0]);
+		String title = sorted[1];
+		String rD = sorted[2];
+		String vRD = sorted[3];
+		String url = sorted[4];
+		int genres[] = 
+		for(int i = 4; i < sorted.length; i ++) {
+			if(Integer.parseInt(sorted[i]) == 1)
+				
+		}
+		
+		return null;
+	}
+	
+	public Rating lineToRating(String line) {
+		return null;
+	}
+	
+}

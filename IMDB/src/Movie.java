@@ -13,23 +13,14 @@ public class Movie {
 	};
 	public ArrayList<Integer> indexes;
 	
-	public Movie() {
-		mID = 0;
-		title = "";
-		releaseDate = "";
-		vidReleaseDate = "";
-		URL = "";
-		indexes = null;
-	}
 	
-	public Movie(int ID, String title, String rD, String vRD, String URL, int[] indecies) {
+	public Movie(int ID, String title, String rD, String vRD, String URL, ArrayList<Integer> i) {
 		mID = ID;
 		this.title = title;
 		releaseDate = rD;
 		vidReleaseDate = vRD;
 		this.URL = URL;
-		for(int i = 0; i < indecies.length; i++)
-			indexes.add(indecies[i]);
+		indexes = i;
 	}
 	
 	
@@ -40,5 +31,9 @@ public class Movie {
 			genre += genres[indexes.get(i)];
 		output += mID + " "+ title + " " + releaseDate + " " + vidReleaseDate + " " + URL + " " + genre;
 		return output;
+	}
+	
+	public int getID() {
+		return mID;
 	}
 }
