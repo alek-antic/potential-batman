@@ -33,7 +33,7 @@ public class Movie {
 		return output;
 	}
 	
-	public int getID() {
+	public int getId() {
 		return mID;
 	}
 }

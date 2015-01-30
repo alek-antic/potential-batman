@@ -19,7 +19,12 @@ public class User {
 	
 	public String toString() {
 		String output = "";
-		output += uID + " " + age + " " + isMale + " " + occupation + " " + zipCode;
+		char c = ' ';
+		if(isMale)
+			c = 'M';
+		else
+			c = 'F';
+		output += uID + " " + age + " " + c + " " + occupation + " " + zipCode;
 		return output;
 	}
 	
@@ -29,5 +34,9 @@ public class User {
 	
 	public void addRating(Rating r) {
 		ratings.add(r);
+	}
+	
+	public ArrayList<Rating> getRatings() {
+		return ratings;
 	}
 }
