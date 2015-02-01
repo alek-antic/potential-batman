@@ -7,9 +7,8 @@ public class IMDB {
 	private static final String moviesFile = "ml-100k/u.item";
 
 	// Add fields to represent your database.
-	private static ArrayList<User> users;
-	private static ArrayList<Movie> movies;
-	private static ArrayList<Rating> rating;
+	private ArrayList<User> users;
+	private ArrayList<Movie> movies;
 
 
 	
@@ -23,15 +22,13 @@ public class IMDB {
 		FileIO reader = new FileIO();
 		String userData = reader.readFile(usersFile);
 		String movieData = reader.readFile(moviesFile);
-		String listData = reader.readFile(ratingsFile);
 		
 		String[] userLineData = userData.split(reader.lineSeparator);
 		String[] movieLineData = movieData.split(reader.lineSeparator);
-		String[] ratingLineData = listData.split(reader.lineSeparator);
 		
-		ArrayList<User> users = new ArrayList<User>();
-		ArrayList<Movie> movies = new ArrayList<Movie>();
-		ArrayList<Rating> ratings = new ArrayList<Rating>();
+		users = new ArrayList<User>();
+		movies = new ArrayList<Movie>();
+		
 		MovieLens100KTranslator trans = new MovieLens100KTranslator();
 		
 		for(String s : userLineData) {
@@ -42,11 +39,6 @@ public class IMDB {
 		for(String s : movieLineData) {
 			Movie m = trans.lineToMovie(s);
 			movies.add(m);
-		}
-		
-		for(String s : ratingLineData) {
-			Rating m = trans.lineToRating(s, users, movies);
-			ratings.add(m);
 		}
 	}
 	
@@ -86,9 +78,16 @@ public class IMDB {
 			}
 		}
 		
+		if(user == null)
+			return -1;
+		
 		ArrayList<Rating> ratings = user.getRatings();
-		for(int i = 0; i < user.getRatings().size(); i++) {
-			
+		
+		for(int i = 0; i < ratings.size(); i++) {
+			if(ratings.get(i).getMovie().getId() == movieID)
+			{
+				return ratings.get(i).getStars();
+			}
 		}
 		
 		return -1;
@@ -104,7 +103,7 @@ public class IMDB {
 	 */
 	public double guessRating(long userID, long movieID) {
 
-		return 0;
+		return Math.random() *5;
 	}
 	
 }

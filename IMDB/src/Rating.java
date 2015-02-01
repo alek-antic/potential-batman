@@ -17,6 +17,10 @@ public class Rating {
 		u.addRating(this);
 	}
 	
+	public double getStars() {
+		return stars;
+	}
+	
 	public User getUser() {
 		return user;
 	}
