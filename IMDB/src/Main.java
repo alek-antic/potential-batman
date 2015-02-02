@@ -39,6 +39,7 @@ public class Main {
 		for(int i = 0; i <ratings.size(); i++) {
 			System.out.println(ratings.get(i));
 		}
+		
 	}
 
 }

@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class IMDBTester {
 	
-	public static final String baseFile = "ml-100k/u1.base";
-	public static final String testFile = "ml-100k/u1.test";
+	public static final String baseFile = "ml-100k/ub.base";
+	public static final String testFile = "ml-100k/ub.test";
 	
 	
 

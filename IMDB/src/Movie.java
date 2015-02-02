@@ -12,6 +12,7 @@ public class Movie {
             "Thriller", "War", "Western"
 	};
 	public ArrayList<Integer> indexes;
+	public ArrayList<Rating> ratings;
 	
 	
 	public Movie(int ID, String title, String rD, String vRD, String URL, ArrayList<Integer> i) {
@@ -31,6 +32,10 @@ public class Movie {
 			genre += genres[indexes.get(i)];
 		output += mID + " "+ title + " " + releaseDate + " " + vidReleaseDate + " " + URL + " " + genre;
 		return output;
+	}
+	
+	public void addRating(Rating r) {
+		ratings.add(r);
 	}
 	
 	public int getId() {

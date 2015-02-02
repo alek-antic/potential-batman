@@ -15,6 +15,7 @@ public class Rating {
 		stars = s;
 		timestamp = l;
 		u.addRating(this);
+		m.addRating(this);
 	}
 	
 	public double getStars() {
