@@ -20,4 +20,6 @@
 <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 <fullyQualifiedTypeName name="MovieLens100KTranslator"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;reader&apos; in &apos;FileIO.writeFile(...)&apos; to &apos;writer&apos;&#x0D;&#x0A;- Original project: &apos;Crypt&apos;&#x0D;&#x0A;- Original element: &apos;FileIO.writeFile(String, String).reader&apos;&#x0D;&#x0A;- Renamed element: &apos;reader&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;reader&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{FileIO.java[FileIO~writeFile~QString;~QString;@reader!892!909!903!908!QFileWriter;!0!false" name="writer" references="true" stamp="1423086345343" version="1.0"/>
+</session>

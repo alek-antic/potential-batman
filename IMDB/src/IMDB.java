@@ -188,8 +188,6 @@ public class IMDB {
 			rating = averageMovieRating;
 		}
 		
-		
-		
 		return rating;
 	}
 	
