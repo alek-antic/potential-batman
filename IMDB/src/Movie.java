@@ -22,6 +22,7 @@ public class Movie {
 		vidReleaseDate = vRD;
 		this.URL = URL;
 		indexes = i;
+		ratings = new ArrayList<Rating>();
 	}
 	
 	
@@ -38,7 +39,19 @@ public class Movie {
 		ratings.add(r);
 	}
 	
+	public ArrayList<Rating> getRatings() {
+		return ratings;
+	}
+	
 	public int getId() {
 		return mID;
+	}
+	
+	public int[] getGenres() {
+		int[] genre = new int[indexes.size()];
+		for(int i = 0; i < indexes.size(); i++) {
+			genre[i] = indexes.get(i);
+		}
+		return genre;
 	}
 }

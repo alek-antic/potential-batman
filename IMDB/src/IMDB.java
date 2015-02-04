@@ -118,10 +118,79 @@ public class IMDB {
 	 * @pre A user with id userID and a movie with id movieID exist in the database.
 	 */
 	public double guessRating(long userID, long movieID) {
+		double rating = 4;
+		double averageMovieRating = 0;
+		Movie movie = null;
+		User user = null;
+		boolean genreBonus = false;
+		int favoriteGenre = 0;
+		int[] movieGenre;
+		
+		
+		for(Movie m : movies) {
+			if(m.getId() == movieID)
+				movie = m;
+		}
+		
+		for(User u : users) {
+			if(u.getId() == userID)
+				user = u;
+		}
+		
+		movieGenre = movie.getGenres();
 
+		ArrayList<Rating> movieRatings = movie.getRatings();
+		
+		for(Rating r : movieRatings) {
+			if(r.getUser().getId() == userID)
+				return r.getStars();
+		}
 		
 		
-		return 4;
+		//ALGORITHM BELOW
+		
+		favoriteGenre = user.getFavoriteGenre();
+		/*
+		int similarUserAverageRating = 0;
+		int similarUsers = 0;
+		for(User u : users) {
+			int t = u.getFavoriteGenre();
+			ArrayList<Rating> temp = u.getRatings();
+			if(t == favoriteGenre){
+				for(Rating r : temp) {
+					if(r.getMovie().getId() == movieID) {
+						similarUserAverageRating += r.getStars();
+						similarUsers++;
+					}
+				}
+			}
+		}
+		
+		
+		if(similarUsers != 0)
+			similarUserAverageRating /= similarUsers;
+		*/
+		for(int i = 0; i < movieGenre.length; i ++) {
+			if(movieGenre[i] == favoriteGenre)
+				genreBonus = true;
+		}
+		
+		for(Rating r : movieRatings) {
+			averageMovieRating += r.getStars();
+		}
+		
+		if(movieRatings.size() != 0)
+			averageMovieRating /= movieRatings.size();
+		
+		if(genreBonus) {
+			rating = averageMovieRating + averageMovieRating * 0.04;
+		} else {
+			rating = averageMovieRating;
+		}
+		
+		
+		
+		return rating;
 	}
 	
 }

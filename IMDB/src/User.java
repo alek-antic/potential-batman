@@ -28,6 +28,10 @@ public class User {
 		return output;
 	}
 	
+	public int getAge() {
+		return age;
+	}
+	
 	public int getId() {
 		return uID;
 	}
@@ -38,5 +42,25 @@ public class User {
 	
 	public ArrayList<Rating> getRatings() {
 		return ratings;
+	}
+	
+	public int getFavoriteGenre() {
+		int[] genreCount = new int[19];
+		int favoriteGenre = 0;
+		
+		ArrayList<Rating> userRatings = this.getRatings();
+		
+		for(int i = 0; i < userRatings.size(); i++) {
+			int[] genre = userRatings.get(i).getMovie().getGenres();
+			for(int j = 0; j < genre.length; j++) {
+				genreCount[genre[j]]++;
+			}
+		}
+		
+		for(int i = 0; i < genreCount.length; i ++) {
+			if(genreCount[i] > favoriteGenre)
+				favoriteGenre = i;
+		}
+		return 0;
 	}
 }
