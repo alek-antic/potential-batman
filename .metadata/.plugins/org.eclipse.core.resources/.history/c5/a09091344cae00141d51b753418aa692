@@ -11,14 +11,11 @@ public class Crypt {
 		String data = accessor.readFile(inputFileName);
 		
 		StringBuffer tempKey = new StringBuffer(keyword);
-		int[] chars = new int[25];
+		int[] chars = new int[26];
 		
 		for(int i = 0; i < chars.length; i ++) {
 			int k = Character.toUpperCase(tempKey.charAt(i)) - 65;
-			
-			if((chars[8] != 0 && k == 10) || (chars[9] != -0 && k == 9)) {
-				tempKey.deleteCharAt(i);
-			} else if(chars[k] == 0) {
+			if(chars[k] == 0) {
 				chars[k]++;
 			} else {
 				tempKey.deleteCharAt(i);
@@ -26,11 +23,9 @@ public class Crypt {
 		}
 		
 		for(int i = 0; i < 26; i++) {
-			if(chars[i] == 0) {
-				tempKey.append((char)(i+65));
-			}
+			
 		}
-		
+		chars = null;
 		
 		
 		accessor.writeFile(outputFileName, data);
