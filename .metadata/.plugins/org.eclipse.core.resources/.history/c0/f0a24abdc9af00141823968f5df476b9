@@ -1,0 +1,86 @@
+public class Crypt {
+
+	public static final String keyword = "crypt";
+	private char[][] key = new char[5][5];
+	private int[][] indecies = new int[25][2];
+	private boolean isIFirst;
+	
+
+	public void generateKey(String keyword) {
+		
+		isIFirst = keyword.indexOf('I') <= keyword.indexOf('J');
+		keyword = keyword.toUpperCase();
+		if (isIFirst) {
+			keyword = keyword.replaceAll("J", "I");
+		} else {
+			keyword = keyword.replaceAll("I", "J");
+		}
+
+		StringBuffer tempKey = new StringBuffer(keyword);
+		int[] chars = new int[26];
+
+		for (int i = 0; i < tempKey.length(); i++) {
+			int k = Character.toUpperCase(tempKey.charAt(i)) - 65;
+			if (chars[k] == 0) {
+				chars[k]++;
+			} else {
+				tempKey.deleteCharAt(i);
+			}
+		}
+
+		for (int i = 0; i < 26; i++) {
+			if (chars[i] == 0) {
+				tempKey.append((char) (i + 65));
+			}
+		}
+		String temp = tempKey.toString();
+		isIFirst = temp.indexOf('I') <= temp.indexOf('J');
+		if (isIFirst) {
+			temp = temp.replaceAll("J", "");
+		} else {
+			temp = temp.replaceAll("I", "");
+		}
+		
+		tempKey = new StringBuffer(temp);
+		
+		
+		for(int i = 0; i < 5; i++) {
+			for(int j = 0; j < 5; j++) {
+				key[i][j] = tempKey.charAt(0);
+				if(isIFirst) {
+					if(key[i][j] >= 'j') {
+						indecies[key[i][j] - 64][0] = i;
+						indecies[key[i][j] - 64][1] = j;
+					} else {
+						
+					}
+				}
+				tempKey.deleteCharAt(0);
+			}
+		}
+	}
+	
+	public char[][] getKey() {
+		return key;
+	}
+
+	public void encrypt(String inputFileName, String outputFileName,
+			String keyword) {
+		FileIO accessor = new FileIO();
+		String data = accessor.readFile(inputFileName);
+
+		generateKey(keyword);
+
+		accessor.writeFile(outputFileName, data);
+	}
+
+	public void decrypt(String inputFileName, String outputFileName,
+			String keyword) {
+		FileIO accessor = new FileIO();
+		String data = accessor.readFile(inputFileName);
+
+		generateKey(keyword);
+
+		accessor.writeFile(outputFileName, data);
+	}
+}

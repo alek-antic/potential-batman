@@ -1,0 +1,15 @@
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Crypt crypt = new Crypt();
+		crypt.generateKey("crypt");
+		char[][] key = crypt.getKey();
+		for(int i = key.length; i++) {
+			for(int j = key[i].length; j++){
+				System.out.print(key[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}

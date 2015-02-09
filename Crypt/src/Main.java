@@ -2,8 +2,16 @@
 public class Main {
 	
 	public static void main(String[] args) {
-		FileIO accessor = new FileIO();
-		String data = accessor.readFile("u.item");
-		accessor.writeFile("testcopy", data);
+		Crypt crypt = new Crypt();
+		crypt.generateKey("crypt");
+		char[][] key = crypt.getKey();
+		for(int i = 0; i <key.length; i++) {
+			for(int j = 0; j < key[i].length; j++){
+				System.out.print(key[i][j]);
+			}
+			System.out.println();
+		}
+		crypt.encrypt("Romeo.txt", "results.txt", "crypt");
 	}
+	
 }
