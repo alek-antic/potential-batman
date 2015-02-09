@@ -11,13 +11,15 @@ public class FileIO {
 	
 	public String readFile(String filename) {
 		
-		FileReader reader;
+		BufferedReader breader = null;
+		FileReader reader = null;
 		String fileData = null;
 		Scanner in = null;
 		try {
 			
 			reader = new FileReader(filename);
-			in = new Scanner(reader);
+			breader = new BufferedReader(reader);
+			in = new Scanner(breader);
 			fileData = "";
 			
 			StringBuffer changingFileData = new StringBuffer();
@@ -41,12 +43,16 @@ public class FileIO {
 	
 public void writeFile(String filename, String data) {
 		
+		BufferedWriter bwriter = null;
 		FileWriter writer = null;
 		
 		try {
 			
 			writer = new FileWriter(filename);
-			writer.write(data);
+			bwriter = new BufferedWriter(writer);
+			bwriter.write(data);
+			
+			bwriter.flush();
 			
 			
 		} catch (FileNotFoundException ex) {
@@ -58,9 +64,9 @@ public void writeFile(String filename, String data) {
 			ex.printStackTrace();
 			
 		} finally {
-			if(writer != null) { 
+			if(bwriter != null) { 
 				try {
-					writer.close();
+					bwriter.close();
 				} catch (IOException ex) {
 					System.out.println("Make like a hockey team"
 							+ " and get the puck outta here");

@@ -1,3 +1,11 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Crypt {
 
 	public static final String keyword = "crypt";
@@ -74,26 +82,121 @@ public class Crypt {
 	}
 
 	public void encrypt(String inputFileName, String outputFileName, String keyword) {
-		FileIO accessor = new FileIO();
-		String data = accessor.readFile(inputFileName);
+		
+		String lineSeparator = System.getProperty("line.separator");
+		
+		BufferedReader breader = null;
+		FileReader reader = null;
+		String fileData = null;
+		Scanner in = null;
+		BufferedWriter bwriter = null;
+		FileWriter writer = null;
+		generateKey(keyword);
+		
+		try {
+			
+			
+			reader = new FileReader(inputFileName);
+			breader = new BufferedReader(reader);
+			in = new Scanner(breader);
+			
+			writer = new FileWriter(outputFileName);
+			bwriter = new BufferedWriter(writer);
+			
+			
+			fileData = "";
+			
+			StringBuffer changingFileData = new StringBuffer();
+			
+			while(in.hasNextLine()) {
+				String input = in.nextLine();
+				
+				changingFileData.append(lineSeparator);
+				
+				
+				
+				//ENCRYPT THE LINE
+				
+				
+				bwriter.write(changingFileData.toString());
+				
+			}
+			
+			bwriter.flush();
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if(in != null)
+				in.close();
+			if(bwriter != null) { 
+				try {
+					bwriter.close();
+				} catch (IOException ex) {
+					System.out.println("Make like a hockey team"
+							+ " and get the puck outta here");
+					ex.printStackTrace();
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		if(isIFirst) {
+			data = data.replaceAll("i", "j");
+			data = data.replaceAll("I", "J");
+		} else {
+			data = data.replaceAll("j", "i");
+			data = data.replaceAll("J", "I");
+		}
 		StringBuffer story = new StringBuffer(data);
+		
+		
+		
 		for(int i = 0; i < story.length(); i++) {
 			if(Character.isWhitespace(story.charAt(i)))
 				story.deleteCharAt(i);
 		}
-		generateKey(keyword);
-		String output ="";
 		
-		for(int i = 0; i < story.length(); i++) {
-		char[] d = data.substring(2 * i, 2* i + 2).toCharArray();
-		int x = indecies[Character.toUpperCase(d[0])- 65][1];
-		int y = indecies[Character.toUpperCase(d[0])- 65][0];
-		int x2 = indecies[Character.toUpperCase(d[1])- 65][1];
-		int y2 = indecies[Character.toUpperCase(d[1])- 65][0];
 		
-		output += "" + key[y2][x] + "" + key[y][x2];
+		char[] digraph = new char[2];
+		String cache1 = "";
+		String cache2 = "";
+		int j = 2;
+		int k = 2;
+		
+		
+		for(int i = 0; i < 2; i++) {
+			char c = story.charAt(i);
+			if(Character.isLetter(c)) {
+				digraph[i] = c;
+			} else {
+				if(i == 0) {
+					cache1 += c;
+					i--;
+					j = 0;
+				} else {
+					cache2 += c;
+					i--;
+					k = 1;
+				}
+			}
 		}
-		accessor.writeFile(outputFileName, output);
+		int[] letter1 = indecies[Character.toUpperCase(digraph[0])-65];
+		int[] letter2 = indecies[Character.toUpperCase(digraph[1])-65];
+		
+		String encryptedPair = "";
+		
+		char one = key[letter1[0]][letter2[1]];
+		char two = key[letter2[0]][letter1[1]];
+		
 	}
 
 	public void decrypt(String inputFileName, String outputFileName, String keyword) {
