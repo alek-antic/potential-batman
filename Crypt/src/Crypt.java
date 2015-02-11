@@ -81,13 +81,15 @@ public class Crypt {
 		return key;
 	}
 
+	public int[][] getIndecies() {
+		return indecies;
+	}
 	public void encrypt(String inputFileName, String outputFileName, String keyword) {
 		
 		String lineSeparator = System.getProperty("line.separator");
 		
 		BufferedReader breader = null;
 		FileReader reader = null;
-		String fileData = null;
 		Scanner in = null;
 		BufferedWriter bwriter = null;
 		FileWriter writer = null;
@@ -104,26 +106,93 @@ public class Crypt {
 			bwriter = new BufferedWriter(writer);
 			
 			
-			fileData = "";
-			
 			StringBuffer changingFileData = new StringBuffer();
+			char leftover = 0;
+			boolean append = false;
 			
 			while(in.hasNextLine()) {
 				String input = in.nextLine();
-				
+				changingFileData.append(input);
 				changingFileData.append(lineSeparator);
+				StringBuffer result = new StringBuffer();
 				
 				
 				
-				//ENCRYPT THE LINE
+				if(append) {
+					changingFileData.insert(0, leftover);
+					changingFileData.deleteCharAt(changingFileData.length()-1);
+				}
+				
+				int numLetters = 0;
+				
+				for(int i = 0; i < changingFileData.length(); i++) {
+					if(Character.isLetter(changingFileData.charAt(i))) {
+						numLetters++;
+						leftover = changingFileData.charAt(i);
+					}
+						
+				}
+				
+				append = numLetters % 2 != 0;
+				
+				for(int x = 0; x <changingFileData.length(); x+=2) {
+					if(isIFirst) {
+						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("j", "i"));
+						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("J", "I"));
+					} else {
+						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("i", "j"));
+						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("I", "J"));
+					}
+					
+					
+					
+					
+					char[] digraph = new char[2];
+					String cache1 = "";
+					String cache2 = "";
+					
+					
+					for(int i = 0; i < 2; i++) {
+						char c = changingFileData.charAt(x+i);
+						if(Character.isLetter(c)) {
+							digraph[i] = c;
+						} else {
+							if(i == 0) {
+								cache1 += c;
+								i--;
+							} else {
+								cache2 += c;
+								i--;
+							}
+						}
+					}
+					int[] letter1 = indecies[Character.toUpperCase(digraph[0])-65];
+					int[] letter2 = indecies[Character.toUpperCase(digraph[1])-65];
+					
+					String encryptedPair = "";
+					
+					char one = key[letter1[0]][letter2[1]];
+					char two = key[letter2[0]][letter1[1]];
+					
+					if(letter1[1] == letter2[1] || letter1[0] == letter2[0]) {
+						char temp = one;
+						one = two;
+						two = temp;
+					}
+					
+					
+					
+					
+					encryptedPair = cache1 + one + cache2 + two;
+					
+					result.append(encryptedPair);
+				}
 				
 				
-				bwriter.write(changingFileData.toString());
-				
+				bwriter.write(result.toString() + lineSeparator);
 			}
 			
 			bwriter.flush();
-			
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -149,53 +218,7 @@ public class Crypt {
 		
 		
 		
-		if(isIFirst) {
-			data = data.replaceAll("i", "j");
-			data = data.replaceAll("I", "J");
-		} else {
-			data = data.replaceAll("j", "i");
-			data = data.replaceAll("J", "I");
-		}
-		StringBuffer story = new StringBuffer(data);
 		
-		
-		
-		for(int i = 0; i < story.length(); i++) {
-			if(Character.isWhitespace(story.charAt(i)))
-				story.deleteCharAt(i);
-		}
-		
-		
-		char[] digraph = new char[2];
-		String cache1 = "";
-		String cache2 = "";
-		int j = 2;
-		int k = 2;
-		
-		
-		for(int i = 0; i < 2; i++) {
-			char c = story.charAt(i);
-			if(Character.isLetter(c)) {
-				digraph[i] = c;
-			} else {
-				if(i == 0) {
-					cache1 += c;
-					i--;
-					j = 0;
-				} else {
-					cache2 += c;
-					i--;
-					k = 1;
-				}
-			}
-		}
-		int[] letter1 = indecies[Character.toUpperCase(digraph[0])-65];
-		int[] letter2 = indecies[Character.toUpperCase(digraph[1])-65];
-		
-		String encryptedPair = "";
-		
-		char one = key[letter1[0]][letter2[1]];
-		char two = key[letter2[0]][letter1[1]];
 		
 	}
 
