@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.Scanner;
 
 public class Crypt {
@@ -12,10 +13,9 @@ public class Crypt {
 	private char[][] key = new char[5][5];
 	private int[][] indecies = new int[25][2];
 	private boolean isIFirst;
-	
 
 	public void generateKey(String keyword) {
-		
+
 		isIFirst = keyword.indexOf('I') <= keyword.indexOf('J');
 		keyword = keyword.toUpperCase();
 		if (isIFirst) {
@@ -48,15 +48,14 @@ public class Crypt {
 		} else {
 			temp = temp.replaceAll("I", "");
 		}
-		
+
 		tempKey = new StringBuffer(temp);
-		
-		
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 5; j++) {
+
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
 				key[i][j] = tempKey.charAt(0);
-				if(isIFirst) {
-					if(key[i][j] >= 'J') {
+				if (isIFirst) {
+					if (key[i][j] >= 'J') {
 						indecies[key[i][j] - 66][0] = i;
 						indecies[key[i][j] - 66][1] = j;
 					} else {
@@ -64,7 +63,7 @@ public class Crypt {
 						indecies[key[i][j] - 65][1] = j;
 					}
 				} else {
-					if(key[i][j] >= 'I') {
+					if (key[i][j] >= 'I') {
 						indecies[key[i][j] - 66][0] = i;
 						indecies[key[i][j] - 66][1] = j;
 					} else {
@@ -76,7 +75,7 @@ public class Crypt {
 			}
 		}
 	}
-	
+
 	public char[][] getKey() {
 		return key;
 	}
@@ -84,124 +83,58 @@ public class Crypt {
 	public int[][] getIndecies() {
 		return indecies;
 	}
-	public void encrypt(String inputFileName, String outputFileName, String keyword) {
-		
+
+	public void encrypt(String inputFileName, String outputFileName,
+			String keyword) {
+
 		String lineSeparator = System.getProperty("line.separator");
-		
+
 		BufferedReader breader = null;
 		FileReader reader = null;
 		Scanner in = null;
 		BufferedWriter bwriter = null;
 		FileWriter writer = null;
 		generateKey(keyword);
-		
+
 		try {
-			
-			
+
 			reader = new FileReader(inputFileName);
 			breader = new BufferedReader(reader);
 			in = new Scanner(breader);
-			
+
 			writer = new FileWriter(outputFileName);
 			bwriter = new BufferedWriter(writer);
-			
-			
+
+			StringBuffer leftoverChar = new StringBuffer();
 			StringBuffer changingFileData = new StringBuffer();
-			char leftover = 0;
-			boolean append = false;
 			
-			while(in.hasNextLine()) {
+			while (in.hasNextLine()) {
 				String input = in.nextLine();
+				changingFileData.append(leftoverChar);
 				changingFileData.append(input);
 				changingFileData.append(lineSeparator);
-				StringBuffer result = new StringBuffer();
 				
-				
-				
-				if(append) {
-					changingFileData.insert(0, leftover);
-					changingFileData.deleteCharAt(changingFileData.length()-1);
+				StringBuffer cache1
+
+				while(changingFileData.length() > 0) {
+					
 				}
+
+				changingFileData.delete(0, changingFileData.length());
 				
-				int numLetters = 0;
-				
-				for(int i = 0; i < changingFileData.length(); i++) {
-					if(Character.isLetter(changingFileData.charAt(i))) {
-						numLetters++;
-						leftover = changingFileData.charAt(i);
-					}
-						
-				}
-				
-				append = numLetters % 2 != 0;
-				
-				for(int x = 0; x <changingFileData.length(); x+=2) {
-					if(isIFirst) {
-						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("j", "i"));
-						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("J", "I"));
-					} else {
-						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("i", "j"));
-						changingFileData = new StringBuffer(changingFileData.toString().replaceAll("I", "J"));
-					}
-					
-					
-					
-					
-					char[] digraph = new char[2];
-					String cache1 = "";
-					String cache2 = "";
-					
-					
-					for(int i = 0; i < 2; i++) {
-						char c = changingFileData.charAt(x+i);
-						if(Character.isLetter(c)) {
-							digraph[i] = c;
-						} else {
-							if(i == 0) {
-								cache1 += c;
-								i--;
-							} else {
-								cache2 += c;
-								i--;
-							}
-						}
-					}
-					int[] letter1 = indecies[Character.toUpperCase(digraph[0])-65];
-					int[] letter2 = indecies[Character.toUpperCase(digraph[1])-65];
-					
-					String encryptedPair = "";
-					
-					char one = key[letter1[0]][letter2[1]];
-					char two = key[letter2[0]][letter1[1]];
-					
-					if(letter1[1] == letter2[1] || letter1[0] == letter2[0]) {
-						char temp = one;
-						one = two;
-						two = temp;
-					}
-					
-					
-					
-					
-					encryptedPair = cache1 + one + cache2 + two;
-					
-					result.append(encryptedPair);
-				}
-				
-				
-				bwriter.write(result.toString() + lineSeparator);
+				bwriter.write(0);
 			}
-			
+
 			bwriter.flush();
-			
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
-			if(in != null)
+			if (in != null)
 				in.close();
-			if(bwriter != null) { 
+			if (bwriter != null) {
 				try {
 					bwriter.close();
 				} catch (IOException ex) {
@@ -211,18 +144,11 @@ public class Crypt {
 				}
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
-	public void decrypt(String inputFileName, String outputFileName, String keyword) {
+	public void decrypt(String inputFileName, String outputFileName,
+			String keyword) {
 		encrypt(inputFileName, outputFileName, keyword);
 	}
 }
