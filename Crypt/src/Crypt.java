@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.Scanner;
 
 public class Crypt {
@@ -86,7 +85,7 @@ public class Crypt {
 			StringBuffer cache2 = new StringBuffer();
 
 			while (in.hasNext()) {
-				char input = in.next().toCharArray()[0];
+				char input = in.next().charAt(0);
 
 				StringBuffer digraph = new StringBuffer();
 
