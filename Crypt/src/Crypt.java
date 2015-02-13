@@ -11,21 +11,19 @@ public class Crypt {
 
 	public static final String keyword = "crypt";
 	private char[][] key = new char[5][5];
-	private int[][] indecies = new int[25][2];
-	private boolean isIFirst;
+	private int[][] indecies = new int[26][2];
 
 	public void generateKey(String keyword) {
 
-		isIFirst = keyword.indexOf('I') <= keyword.indexOf('J');
-		keyword = keyword.toUpperCase();
-		if (isIFirst) {
-			keyword = keyword.replaceAll("J", "I");
-		} else {
-			keyword = keyword.replaceAll("I", "J");
-		}
-
-		StringBuffer tempKey = new StringBuffer(keyword);
+		char[] noJKey = keyword.toUpperCase().toCharArray();
+		StringBuffer tempKey = new StringBuffer();
 		int[] chars = new int[26];
+		
+		for(char c : noJKey) {
+			if(c=='J')
+				c--;
+			tempKey.append(c);
+		}
 
 		for (int i = 0; i < tempKey.length(); i++) {
 			int k = Character.toUpperCase(tempKey.charAt(i)) - 65;
@@ -37,40 +35,21 @@ public class Crypt {
 		}
 
 		for (int i = 0; i < 26; i++) {
+			if(i == 'J' - 65)
+				continue;
 			if (chars[i] == 0) {
 				tempKey.append((char) (i + 65));
 			}
 		}
-		String temp = tempKey.toString();
-		isIFirst = temp.indexOf('I') <= temp.indexOf('J');
-		if (isIFirst) {
-			temp = temp.replaceAll("J", "");
-		} else {
-			temp = temp.replaceAll("I", "");
-		}
+		
+		
+		for (int y = 0; y < 5; y++) {
+			for (int x = 0; x < 5; x++) {
+				key[y][x] = tempKey.charAt(0);
 
-		tempKey = new StringBuffer(temp);
-
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++) {
-				key[i][j] = tempKey.charAt(0);
-				if (isIFirst) {
-					if (key[i][j] >= 'J') {
-						indecies[key[i][j] - 66][0] = i;
-						indecies[key[i][j] - 66][1] = j;
-					} else {
-						indecies[key[i][j] - 65][0] = i;
-						indecies[key[i][j] - 65][1] = j;
-					}
-				} else {
-					if (key[i][j] >= 'I') {
-						indecies[key[i][j] - 66][0] = i;
-						indecies[key[i][j] - 66][1] = j;
-					} else {
-						indecies[key[i][j] - 65][0] = i;
-						indecies[key[i][j] - 65][1] = j;
-					}
-				}
+						indecies[key[y][x] - 65][0] = x;
+						indecies[key[y][x] - 65][1] = y;
+			
 				tempKey.deleteCharAt(0);
 			}
 		}
@@ -87,8 +66,6 @@ public class Crypt {
 	public void encrypt(String inputFileName, String outputFileName,
 			String keyword) {
 
-		String lineSeparator = System.getProperty("line.separator");
-
 		BufferedReader breader = null;
 		FileReader reader = null;
 		Scanner in = null;
@@ -101,29 +78,91 @@ public class Crypt {
 			reader = new FileReader(inputFileName);
 			breader = new BufferedReader(reader);
 			in = new Scanner(breader);
+			in.useDelimiter("");
 
 			writer = new FileWriter(outputFileName);
 			bwriter = new BufferedWriter(writer);
 
-			StringBuffer leftoverChar = new StringBuffer();
-			StringBuffer changingFileData = new StringBuffer();
-			
-			while (in.hasNextLine()) {
-				String input = in.nextLine();
-				changingFileData.append(leftoverChar);
-				changingFileData.append(input);
-				changingFileData.append(lineSeparator);
-				
-				StringBuffer cache1
+			char one = 0;
+			boolean oneUpper = false;
+			char two = 0;
+			boolean twoUpper = false;
+			int counter = 0;
+			StringBuffer cache1 = new StringBuffer();
+			StringBuffer cache2 = new StringBuffer();
 
-				while(changingFileData.length() > 0) {
-					
+			while (in.hasNext()) {
+				char input = in.next().charAt(0);
+
+				StringBuffer digraph = new StringBuffer();
+				
+				//if char read is j, make it i
+				if (input == 'j' || input == 'J') {
+					input--;
 				}
 
-				changingFileData.delete(0, changingFileData.length());
-				
-				bwriter.write(0);
+				//decide which char to fill
+				if (counter % 2 == 0) {
+					if (Character.isLetter(input)) {
+						one = input;
+						oneUpper = Character.isUpperCase(one);
+						counter++;
+						continue;
+					} else {
+						cache1.append(input);
+						continue;
+					}
+				} else {
+					if (Character.isLetter(input)) {
+						two = input;
+						twoUpper = Character.isUpperCase(two);
+						counter++;
+
+						//Encrypt stuff
+						
+						int[] index1 = indecies[Character.toUpperCase(one) - 65];
+						int[] index2 = indecies[Character.toUpperCase(two) - 65];
+						
+						char newOne = 0;
+						char newTwo = 0;
+						
+						// checks same column or row
+						if(index1[0] == index2[0] || index1[1] == index2[1]) {
+							newOne = Character.toUpperCase(two);
+							newTwo = Character.toUpperCase(one);
+						} else {
+							newOne = key[index1[1]][index2[0]];
+							newTwo = key[index2[1]][index1[0]];
+						}
+						
+						//make lowercase if it should be
+						
+						if(!oneUpper)
+							newOne += 32;
+						if(!twoUpper)
+							newTwo += 32;
+							
+						
+						
+						digraph.append(cache1).append(newOne).append(cache2).append(newTwo);
+						//Reset chars and caches
+						one = 0;
+						two = 0;
+						oneUpper = false;
+						twoUpper = false;
+						cache1.delete(0, cache1.length());
+						cache2.delete(0, cache2.length());
+						
+					} else {
+						cache2.append(input);
+						continue;
+					}
+				}
+
+				bwriter.write(digraph.toString());
+				counter = 0;
 			}
+			bwriter.write(cache1.toString());
 
 			bwriter.flush();
 
