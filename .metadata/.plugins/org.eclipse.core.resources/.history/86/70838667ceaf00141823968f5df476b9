@@ -1,8 +1,0 @@
-
-public class Main {
-	
-	public static void main(String[] args) {
-		Crypt crypt = new Crypt();
-		crypt.encrypt("Romeo.txt", "results.txt", "crypt");
-	}
-}
