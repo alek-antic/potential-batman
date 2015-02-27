@@ -66,7 +66,7 @@ public interface Grid<E>
      * @param loc the location of the object that is to be removed
      * @return the object that was removed (or <code>null<code> if the location
      *  is unoccupied)
-     */x
+     */
     E remove(Location loc);
 
     /**

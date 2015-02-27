@@ -34,19 +34,21 @@ public class BRE {
 			if(p == null)
 				continue;
 			
-			double ratio = p.getAreaToPriceRatio();
+			double ratio = p.getPriceToAreaRatio();
 			if(ratio > bestRatio) {
 				secondRatio = bestRatio;
 				bestRatio = ratio;
 				name2 = name;
 				name = p.toString();
-			} else if(ratio > secondRatio) {
+				continue;
+			}
+			if(ratio > secondRatio) {
 				secondRatio = ratio;
 				name2 = p.toString();
 			}
 		}
 		
-		System.out.println(name + "; " + name2);
+		System.out.println(name + " " + name2);
 		
 	}
 	

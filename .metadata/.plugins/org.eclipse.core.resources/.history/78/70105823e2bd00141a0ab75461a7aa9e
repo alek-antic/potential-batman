@@ -12,8 +12,8 @@ public class Plot {
 		this.length = length;
 	}
 	
-	public double getAreaToPriceRatio() {
-		return width * length / price;
+	public double getPriceToAreaRatio() {
+		return price/ (width * length);
 	}
 	
 	
