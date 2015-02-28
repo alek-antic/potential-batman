@@ -1,0 +1,17 @@
+import info.gridworld.actor.ActorWorld;
+import info.gridworld.actor.Bug;
+import info.gridworld.actor.Rock;
+import info.gridworld.grid.Location;
+
+
+public class ReproductionTester {
+
+	public static void main(String[] args)
+    {
+        ActorWorld world = new ActorWorld();
+        Jumper reproducer = new Jumper();
+        reproducer.setDirection(Location.EAST);
+        world.add(new Location(9,3), reproducer);
+        world.show();
+    }
+}
