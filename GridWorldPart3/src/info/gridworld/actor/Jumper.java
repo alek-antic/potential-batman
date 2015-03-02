@@ -12,6 +12,18 @@ public class Jumper extends Actor{
 		
 	}
 	
+	public void turn() {
+		
+	}
+	
+	public void jump() {
+		
+	}
+	
+	public boolean canJump() {
+		return false;
+	}
+	
 	@Override
 	public void act() {
 		
