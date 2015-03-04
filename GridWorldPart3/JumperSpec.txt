@@ -1,0 +1,18 @@
+If there is a rock or flower two spaces in front of the jumper, the jumper moves to the spot, destroys the object that was there, and adds red flowers extending out from that 
+location in all 4 vertical and horizontal directions, destroying everything in the grid until it reaches the edge of the grid or 10 spaces on an unbounded grid.
+
+If the jumper is facing a direction that has a nonexistent location two spots ahead, it goes forwards one space,
+ it turns 90 degrees right and jumps one space that direction all at once.
+
+If the jumper is facing the edge of the grid one space away it removes itself from the grid.
+
+If the jumper is facing a direction with an actor two spots ahead of it, the actor is removed from the grid, the jumper lands in the spot the actor was in,
+ and leaves rocks in the 8 spots around the jumper, or as many as 
+it possibly can if the actor is next to an edge, removing anything around the destroyed actor.
+
+If a jumper is facing another jumper two spots away, both jumpers turn 90 degrees to the right and a new jumper 
+that's color is the average of the RGB values of the two original bugs and is facing south is created in the spot
+ between the two bugs. Anything in the way is destroyed.
+
+
+ 

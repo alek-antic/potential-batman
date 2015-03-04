@@ -1,0 +1,81 @@
+package info.gridworld.actor;
+
+import info.gridworld.grid.Grid;
+import info.gridworld.grid.Location;
+import java.awt.Color;
+
+public class Jumper extends Actor {
+
+	public Jumper() {
+		setColor(Color.RED);
+	}
+	
+	public Jumper(Color jumperColor) {
+		setColor(jumperColor);
+	}
+	
+	@Override
+	public void act() {
+		int action = getActionType();
+		
+		if(action == -1) {
+			removeSelfFromGrid();
+		} else if (action == 0) {
+			jump();
+		} else if (action == 1){
+			wallJump();
+		} else if (action == 2) {
+			
+			
+			Actor jumper = getGrid().get((getLocation().getAdjacentLocation(getDirection()).getAdjacentLocation(getDirection())));
+			jumper.getColor();
+			getColor();
+			
+			turn();
+		}
+	}
+	
+	public void turn() {
+		setDirection(getDirection() + Location.RIGHT);
+	}
+	
+	public void jump() {
+		
+		
+	}
+	
+	public void wallJump() {
+		
+	}
+	
+	/**
+	 * 
+	 * @return An integer that specifies what type of jump a Jumper will do. -1 kills the Jumper, 0 is a regular jump, and 1 is a wall jump.
+	 */
+	public int getActionType() {
+		
+		Grid<Actor> gr = getGrid();
+		if(gr == null)
+			return -1;
+		
+		int dir = getDirection();
+		Location current = getLocation();
+		Location next = current.getAdjacentLocation(dir);
+		Location dest = current.getAdjacentLocation(dir).getAdjacentLocation(dir);
+		
+		if(!gr.isValid(next)) {
+			return -1;
+		}
+		
+		if(!gr.isValid(dest))
+			return 1;
+		
+		Actor jumper = gr.get(dest);
+		
+		if(jumper instanceof Jumper) {
+			return 2;
+		}
+		
+		return 0;
+	}
+}
