@@ -51,7 +51,7 @@ public class Jumper extends Actor {
 		Actor thing = gr.get(dest);
 		
 		if(thing instanceof Flower || thing instanceof Rock) {
-			Flower f = new Flower(Color.RED);
+			
 			int x = 0;
 			int y = 0;
 			if(gr instanceof BoundedGrid) {
@@ -61,24 +61,51 @@ public class Jumper extends Actor {
 				y = 9;
 				x = 9;
 			}
+			Flower[] flowers = new Flower[x+y];
+			for(int i = 0; i < flowers.length; i++)
+				flowers[i] = new Flower(Color.RED);
 			
 			for(int i = 0; i < x; i++) {
 				if(i == loc.getCol())
 					continue;
-				f.putSelfInGrid(gr, new Location(loc.getRow(), i));
+				flowers[i].putSelfInGrid(gr, new Location(dest.getRow(), i));
 			}
 			
 			for(int i = 0; i < y; i++) {
 				if(i==loc.getRow())
 					continue;
-				f.putSelfInGrid(gr, new Location(i,loc.getCol()));
+				flowers[x+i].putSelfInGrid(gr, new Location(i,dest.getCol()));
 			}
+			moveTo(dest);
+			Flower f = new Flower(Color.RED);
+			f.putSelfInGrid(gr, loc);
 		} else if (thing instanceof Actor) {
+			Rock[] rocks = new Rock[8];
+			for(int i =0; i <8; i++)
+				rocks[i] = new Rock();
+			Location[] adjacents = new Location[8];
+			for(int i = 0; i< adjacents.length; i++) {
+				adjacents[i]= dest.getAdjacentLocation(i * Location.HALF_RIGHT);
+			}
 			
+			for(int i = 0; i < adjacents.length; i++) {
+				if(adjacents[i] == null)
+					continue;
+				rocks[i].putSelfInGrid(gr, adjacents[i]);
+			}
+			moveTo(dest);
+			
+		} else {
+			moveTo(dest);
 		}
+		
 	}
 	
 	public void wallJump() {
+		Location loc = getLocation();
+		Location dest = loc.getAdjacentLocation(getDirection() + Location.HALF_RIGHT);
+		turn();
+		moveTo(dest);
 		
 	}
 	
