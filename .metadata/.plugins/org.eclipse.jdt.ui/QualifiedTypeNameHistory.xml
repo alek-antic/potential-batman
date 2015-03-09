@@ -32,4 +32,5 @@
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Jumper"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.BoundedGrid"/>
+<fullyQualifiedTypeName name="simschool.usables.Drawable"/>
 </qualifiedTypeNameHistroy>
