@@ -1,0 +1,35 @@
+package simschool.usables;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class FileIO {
+
+	
+	
+	public static String readFile(String filename) {
+		
+		FileReader reader = null;
+		Scanner in = null;
+		String fileData = null;
+		
+		
+		try {
+			reader = new FileReader(filename);
+			in = new Scanner(reader);
+			fileData = "";
+			
+			
+			
+		} catch(FileNotFoundException ex) {
+			ex.printStackTrace();
+		} finally {
+			if(reader != null) {
+				in.close();
+			}
+		}
+		
+		
+		return fileData;
+	}
+}

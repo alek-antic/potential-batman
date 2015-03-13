@@ -38,15 +38,16 @@ public class CollegeStudent extends Student {
 	public void draw(DrawingTool marker, int x, int y) {
 		super.draw(marker,x,y);
 		
-		marker.drawRect(25, 0);
 		marker.up();
-		marker.move(x-18,y);
+		marker.move(x-25 * Math.sqrt(2), y+25 * Math.sqrt(2));
 		marker.down();
-		marker.drawCircle(6);
-		marker.up();
-		marker.move(x+18,y);
-		marker.down();
-		marker.drawCircle(6);
+		marker.setDirection(90);
+		marker.forward(25);
+		marker.setDirection(0);
+		marker.forward(70);
+		marker.setDirection(-90);
+		marker.forward(25);
+		
 		
 		//reset
 		marker.up();
