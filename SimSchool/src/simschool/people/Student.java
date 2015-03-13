@@ -1,5 +1,7 @@
 package simschool.people;
 
+import gpdraw.DrawingTool;
+
 /**
  * L.A.11.1
  *
@@ -39,5 +41,19 @@ public class Student extends Person {
 	public String toString() {
 		return super.toString() + ", student id: " + myIdNum + ", gpa: "
 				+ myGPA;
+	}
+	
+	@Override
+	public void draw(DrawingTool marker, int x, int y) {
+		super.draw(marker,x,y);
+		marker.up();
+		marker.move(x,y-75);
+		marker.down();
+		marker.drawRect(37.5, 50);
+		
+		marker.up();
+		marker.move(x,y);
+		marker.down();
+		
 	}
 }

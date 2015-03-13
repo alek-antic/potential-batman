@@ -1,6 +1,7 @@
 package simschool.testers;
 
 import simschool.people.CollegeStudent;
+import gpdraw.*;
 import simschool.people.Person;
 import simschool.people.Student;
 import simschool.people.Teacher;
@@ -22,6 +23,9 @@ public class SchoolTester {
 		CollegeStudent ima = new CollegeStudent("Ima Frosh", 18, "F", "UCB123",
 		                                         4.0, 1, "English");
 		System.out.println(ima);
+		SketchPad pad = new SketchPad(500,500);
+		DrawingTool marker = new DrawingTool(pad);
+		ima.draw(marker, 0,0);
 
 	}
 }

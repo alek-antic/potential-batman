@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="java.lang.Long"/>
 <fullyQualifiedTypeName name="KochSnowflake"/>
 <fullyQualifiedTypeName name="DragonCurve"/>
-<fullyQualifiedTypeName name="gpdraw.DrawingTool"/>
 <fullyQualifiedTypeName name="Statistics"/>
 <fullyQualifiedTypeName name="ArrayReader"/>
 <fullyQualifiedTypeName name="Stats"/>
@@ -33,4 +32,5 @@
 <fullyQualifiedTypeName name="info.gridworld.actor.Jumper"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.BoundedGrid"/>
 <fullyQualifiedTypeName name="simschool.usables.Drawable"/>
+<fullyQualifiedTypeName name="gpdraw.DrawingTool"/>
 </qualifiedTypeNameHistroy>

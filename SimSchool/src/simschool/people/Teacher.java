@@ -1,5 +1,7 @@
 package simschool.people;
 
+import gpdraw.DrawingTool;
+
 public class Teacher extends Person {
 
 	private String subject;
@@ -31,4 +33,24 @@ public class Teacher extends Person {
 		return super.toString() + ", subject: " + subject + ", salary: " + salary;
 	}
 	
+	@Override
+	public void draw(DrawingTool marker, int x, int y) {
+		super.draw(marker, x, y);
+		
+		marker.drawRect(25, 0);
+		marker.up();
+		marker.move(x-18,y);
+		marker.down();
+		marker.drawCircle(6);
+		marker.up();
+		marker.move(x+18,y);
+		marker.down();
+		marker.drawCircle(6);
+		
+		
+		//reset
+		marker.up();
+		marker.move(x,y);
+		marker.down();
+	}
 }

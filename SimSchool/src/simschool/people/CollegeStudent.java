@@ -1,5 +1,7 @@
 package simschool.people;
 
+import gpdraw.DrawingTool;
+
 public class CollegeStudent extends Student {
 
 	
@@ -30,5 +32,25 @@ public class CollegeStudent extends Student {
 	
 	public String toString() {
 		return super.toString() + ", year: " + year +  ", major: " + major;
+	}
+	
+	@Override
+	public void draw(DrawingTool marker, int x, int y) {
+		super.draw(marker,x,y);
+		
+		marker.drawRect(25, 0);
+		marker.up();
+		marker.move(x-18,y);
+		marker.down();
+		marker.drawCircle(6);
+		marker.up();
+		marker.move(x+18,y);
+		marker.down();
+		marker.drawCircle(6);
+		
+		//reset
+		marker.up();
+		marker.move(x,y);
+		marker.down();
 	}
 }

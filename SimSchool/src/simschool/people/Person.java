@@ -50,8 +50,40 @@ public class Person implements Drawable {
 		return myName + ", age: " + myAge + ", gender: " + myGender;
 	}
 
+
 	@Override
-	public void draw(DrawingTool marker) {
+	public void draw(DrawingTool marker, int x, int y) {
+		//setup
+		marker.up();
+		marker.move(x,y);
+		marker.down();
+		
+		marker.drawCircle(50);
+		marker.up();
+		marker.move(x,y-50);
+		marker.down();
+		marker.setDirection(225);
+		marker.forward(66);
+		marker.up();
+		marker.backward(66);
+		marker.down();
+		marker.setDirection(-45);
+		marker.forward(66);
+		marker.up();
+		marker.backward(66);
+		marker.down();
+		marker.setDirection(-90);
+		marker.forward(100);
+		marker.setDirection(-120);
+		marker.forward(66);
+		marker.backward(66);
+		marker.setDirection(-60);
+		marker.forward(66);
+		
+		//reset
+		marker.up();
+		marker.move(x,y);
+		marker.down();
 		
 	}
 }
