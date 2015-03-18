@@ -1,0 +1,30 @@
+package simschool.usables;
+
+import java.util.ArrayList;
+
+import javax.xml.parsers.*;
+
+import simschool.people.Person;
+import org.w3c.dom.*;
+
+public class XMLTranslator {
+
+	private ArrayList<Person> people;
+	private String fileData;
+	
+	public XMLTranslator(String filename) {
+		fileData = FileIO.readFile(filename);
+	}
+	
+	
+	
+	public void makePerson() {
+		try {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
