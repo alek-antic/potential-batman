@@ -12,28 +12,29 @@ public class XMLTranslator {
 	private ArrayList<Teacher> teachers;
 	private ArrayList<Student> students;
 	private ArrayList<CollegeStudent> collegeStudents;
-	private String fileData;
-
-	public XMLTranslator(String filename) {
-		fileData = FileIO.readFile(filename);
+	
+	public XMLTranslator() {
+		people = new ArrayList<Person>();
+		teachers = new ArrayList<Teacher>();
+		students = new ArrayList<Student>();
+		collegeStudents = new ArrayList<CollegeStudent>();
 	}
 
-	public void readXML() {
+	public void readXML(String filename) {
 		try {
-			File xml = new File("peopleXML.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
+			File xml = new File(filename);
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 
 			Document document = builder.parse(xml);
 
 			document.getDocumentElement().normalize();
+			System.out.println(document.getDocumentElement().getNodeName());
 
-			NodeList persons = document.getElementsByTagName("People");
+			NodeList persons = document.getElementsByTagName("Person");
 			NodeList teacher = document.getElementsByTagName("Teacher");
-			NodeList student = document.getElementsByTagName("Students");
-			NodeList collegeStudent = document
-					.getElementsByTagName("CollegeStudent");
+			NodeList student = document.getElementsByTagName("Student");
+			NodeList collegeStudent = document.getElementsByTagName("CollegeStudent");
 
 			for (int i = 0; i < persons.getLength(); i++) {
 				Node nNode = persons.item(i);
@@ -50,7 +51,7 @@ public class XMLTranslator {
 			}
 
 			for (int i = 0; i < teacher.getLength(); i++) {
-				Node nNode = persons.item(i);
+				Node nNode = teacher.item(i);
 
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element) nNode;
@@ -66,7 +67,7 @@ public class XMLTranslator {
 			}
 			
 			for(int i = 0; i < student.getLength(); i++) {
-				Node nNode = persons.item(i);
+				Node nNode = student.item(i);
 				
 				if(nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element)nNode;
@@ -82,7 +83,7 @@ public class XMLTranslator {
 			}
 			
 			for(int i = 0; i < collegeStudent.getLength(); i++) {
-				Node nNode = persons.item(i);
+				Node nNode = collegeStudent.item(i);
 				
 				if(nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element)nNode;
@@ -95,7 +96,7 @@ public class XMLTranslator {
 					int year = Integer.parseInt(e.getAttribute("year"));
 					String major = e.getAttribute("major");
 					CollegeStudent p = new CollegeStudent(name,age,gender,ID,GPA,year,major);
-					people.add(p);
+					collegeStudents.add(p);
 				}
 			}
 
@@ -104,4 +105,19 @@ public class XMLTranslator {
 		}
 	}
 
+	public ArrayList<Person> getPeople() {
+		return people;
+	}
+	
+	public ArrayList<Teacher> getTeachers() {
+		return teachers;
+	}
+	
+	public ArrayList<Student> getStudents() {
+		return students;
+	}
+	
+	public ArrayList<CollegeStudent> getCollegeStudents() {
+		return collegeStudents;
+	}
 }

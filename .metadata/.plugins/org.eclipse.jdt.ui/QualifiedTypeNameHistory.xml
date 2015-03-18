@@ -32,7 +32,8 @@
 <fullyQualifiedTypeName name="simschool.usables.Drawable"/>
 <fullyQualifiedTypeName name="gpdraw.DrawingTool"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="simschool.people.Person"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+<fullyQualifiedTypeName name="simschool.usables.XMLTranslator"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
