@@ -1,0 +1,7 @@
+package schoolobjects;
+
+public abstract class LivingThing implements Drawable{
+
+	
+	
+}

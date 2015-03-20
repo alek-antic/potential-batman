@@ -36,4 +36,6 @@
 <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
 <fullyQualifiedTypeName name="simschool.usables.XMLTranslator"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="simschool.usables.Animal"/>
+<fullyQualifiedTypeName name="schoolobjects.LivingThing"/>
 </qualifiedTypeNameHistroy>

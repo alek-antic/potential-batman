@@ -1,0 +1,5 @@
+package schoolobjects;
+
+public abstract class LivingThing {
+
+}
