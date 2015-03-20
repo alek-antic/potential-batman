@@ -1,0 +1,25 @@
+
+public class Chick implements Animal{
+
+	private String myType, mySound;
+	
+	public Chick() {
+		myType= "chick";
+		mySound = "cluck";
+	}
+	
+	@Override
+	public String getSound() {
+		return mySound;
+	}
+
+	@Override
+	public String getType() {
+		return myType;
+	}
+	
+	public String toString() {
+		return "The " + getType() + " goes " + getSound();
+	}
+
+}

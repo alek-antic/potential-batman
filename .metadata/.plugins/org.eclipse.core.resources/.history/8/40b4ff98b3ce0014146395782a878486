@@ -1,0 +1,14 @@
+
+public class Chick implements Animal{
+
+	@Override
+	public String getSound() {
+		return null;
+	}
+
+	@Override
+	public String getType() {
+		return null;
+	}
+
+}

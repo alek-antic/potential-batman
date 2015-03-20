@@ -29,7 +29,6 @@ public class XMLTranslator {
 			Document document = builder.parse(xml);
 
 			document.getDocumentElement().normalize();
-			System.out.println(document.getDocumentElement().getNodeName());
 
 			NodeList persons = document.getElementsByTagName("Person");
 			NodeList teacher = document.getElementsByTagName("Teacher");
@@ -42,9 +41,9 @@ public class XMLTranslator {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element) nNode;
 
-					String name = e.getAttribute("name");
-					int age = Integer.parseInt(e.getAttribute("age"));
-					String gender = e.getAttribute("gender");
+					String name = e.getElementsByTagName("name").item(0).getTextContent();
+					int age = Integer.parseInt(e.getElementsByTagName("age").item(0).getTextContent());
+					String gender = e.getElementsByTagName("gender").item(0).getTextContent();
 					Person p = new Person(name, age, gender);
 					people.add(p);
 				}
@@ -56,11 +55,11 @@ public class XMLTranslator {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element) nNode;
 
-					String name = e.getAttribute("name");
-					int age = Integer.parseInt(e.getAttribute("age"));
-					String gender = e.getAttribute("gender");
-					String subject = e.getAttribute("subject");
-					double salary = Double.parseDouble(e.getAttribute("salary"));
+					String name = e.getElementsByTagName("name").item(0).getTextContent();
+					int age = Integer.parseInt(e.getElementsByTagName("age").item(0).getTextContent());
+					String gender = e.getElementsByTagName("gender").item(0).getTextContent();
+					String subject = e.getElementsByTagName("subject").item(0).getTextContent();
+					double salary = Double.parseDouble(e.getElementsByTagName("salary").item(0).getTextContent());
 					Teacher p = new Teacher(name, age, gender,subject,salary);
 					teachers.add(p);
 				}
@@ -72,11 +71,11 @@ public class XMLTranslator {
 				if(nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element)nNode;
 					
-					String name = e.getAttribute("name");
-					int age = Integer.parseInt(e.getAttribute("age"));
-					String gender = e.getAttribute("gender");
-					String ID = e.getAttribute("ID");
-					double GPA = Double.parseDouble(e.getAttribute("GPA"));
+					String name = e.getElementsByTagName("name").item(0).getTextContent();
+					int age = Integer.parseInt(e.getElementsByTagName("age").item(0).getTextContent());
+					String gender = e.getElementsByTagName("gender").item(0).getTextContent();
+					String ID = e.getElementsByTagName("ID").item(0).getTextContent();
+					double GPA = Double.parseDouble(e.getElementsByTagName("GPA").item(0).getTextContent());
 					Student p = new Student(name,age,gender,ID,GPA);
 					students.add(p);
 				}
@@ -88,13 +87,13 @@ public class XMLTranslator {
 				if(nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element)nNode;
 					
-					String name = e.getAttribute("name");
-					int age = Integer.parseInt(e.getAttribute("age"));
-					String gender = e.getAttribute("gender");
-					String ID = e.getAttribute("ID");
-					double GPA = Double.parseDouble(e.getAttribute("GPA"));
-					int year = Integer.parseInt(e.getAttribute("year"));
-					String major = e.getAttribute("major");
+					String name = e.getElementsByTagName("name").item(0).getTextContent();
+					int age = Integer.parseInt(e.getElementsByTagName("age").item(0).getTextContent());
+					String gender = e.getElementsByTagName("gender").item(0).getTextContent();
+					String ID = e.getElementsByTagName("ID").item(0).getTextContent();
+					double GPA = Double.parseDouble(e.getElementsByTagName("GPA").item(0).getTextContent());
+					int year = Integer.parseInt(e.getElementsByTagName("year").item(0).getTextContent());
+					String major = e.getElementsByTagName("major").item(0).getTextContent();
 					CollegeStudent p = new CollegeStudent(name,age,gender,ID,GPA,year,major);
 					collegeStudents.add(p);
 				}
