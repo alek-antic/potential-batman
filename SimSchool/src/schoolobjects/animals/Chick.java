@@ -1,6 +1,7 @@
 package schoolobjects.animals;
 
 
+import gpdraw.DrawingTool;
 import schoolobjects.LivingThing;
 
 
@@ -37,6 +38,11 @@ public class Chick extends LivingThing implements Animal{
 	@Override
 	public String getType() {
 		return myType;
+	}
+	
+	@Override
+	public void draw(DrawingTool marker, int x, int y) {
+		super.draw(marker,x,y);
 	}
 	
 	public String toString() {

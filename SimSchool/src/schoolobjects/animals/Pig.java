@@ -1,6 +1,7 @@
 package schoolobjects.animals;
 
 import schoolobjects.LivingThing;
+import gpdraw.*;
 
 
 public class Pig extends LivingThing implements Animal{
@@ -27,4 +28,9 @@ public class Pig extends LivingThing implements Animal{
 		return "The " + getType() + " goes " + getSound();
 	}
 
+	
+	@Override
+	public void draw(DrawingTool marker, int x, int y) {
+		super.draw(marker,x,y);
+	}
 }
