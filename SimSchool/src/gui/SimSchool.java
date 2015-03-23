@@ -2,6 +2,7 @@ package gui;
 
 import java.util.ArrayList;
 
+import schoolobjects.animals.Pig;
 import schoolobjects.people.CollegeStudent;
 import schoolobjects.people.Person;
 import schoolobjects.people.Student;
@@ -33,9 +34,11 @@ public class SimSchool {
 		
 		ArrayList<Person> people = trans.getPeople();
 		
-		for(Person p : people) {
-			System.out.println(p);
-		}
+		Pig pig = new Pig();
+		
+		SketchPad pad = new SketchPad(500,500);
+		DrawingTool marker = new DrawingTool(pad);
+		pig.draw(marker,0,0);
 		
 		
 

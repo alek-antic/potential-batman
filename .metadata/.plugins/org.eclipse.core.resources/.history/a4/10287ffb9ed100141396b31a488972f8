@@ -1,0 +1,45 @@
+package schoolobjects.animals;
+
+import schoolobjects.LivingThing;
+import gpdraw.*;
+
+
+public class Pig extends LivingThing implements Animal{
+
+	private String myType, mySound;
+	
+	public Pig() {
+		myType = "pig";
+		mySound = "oink";
+	}
+	
+	@Override
+	public String getSound() {
+		
+		return mySound;
+	}
+
+	@Override
+	public String getType() {
+		return myType;
+	}
+	
+	public String toString() {
+		return "The " + getType() + " goes " + getSound();
+	}
+
+	
+	@Override
+	public void draw(DrawingTool marker, int x, int y) {
+		super.draw(marker,x,y);
+		
+		marker.drawOval(100, 50);
+		marker.up();
+		marker.setDirection(135);
+		marker.move(37);
+		marker.down();
+		marker.drawCircle(25);
+		marker.up();
+		
+	}
+}
