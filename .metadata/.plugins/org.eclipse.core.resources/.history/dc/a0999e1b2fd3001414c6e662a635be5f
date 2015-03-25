@@ -1,0 +1,12 @@
+import javax.swing.JSlider;
+
+
+public class Slider extends JSlider {
+
+	
+	public Slider(int start, int end) {
+		super(start,end);
+	}
+	
+	
+}

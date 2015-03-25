@@ -1,0 +1,19 @@
+import java.awt.BorderLayout;
+
+import javax.swing.*;
+
+
+public class BottomPanel extends JPanel {
+
+	private JRadioButton circle, square, triangle;
+	private JSlider slider;
+	private JCheckBox bold, italic, underline;
+	
+	public BottomPanel () {
+		setLayout(new BorderLayout(50,0));
+		
+		circle = new JRadioButton("Circle");
+		
+	}
+	
+}

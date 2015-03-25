@@ -1,0 +1,12 @@
+import javax.swing.JRadioButton;
+
+
+public class RadioButtons {
+
+	
+	private JRadioButton[] buttons;
+	
+	public RadioButtons(int number) {
+		
+	}
+}

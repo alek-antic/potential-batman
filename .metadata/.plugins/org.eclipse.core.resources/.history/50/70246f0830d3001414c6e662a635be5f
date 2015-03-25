@@ -1,0 +1,13 @@
+import javax.swing.JSlider;
+
+
+public class Slider extends JSlider {
+
+	
+	public Slider(int start, int end) {
+		super(start,end);
+		setMajorTickSpacing((int) (end-start/10.0));
+	}
+	
+	
+}
