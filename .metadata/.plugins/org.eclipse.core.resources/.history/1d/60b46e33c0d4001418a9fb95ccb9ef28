@@ -1,0 +1,26 @@
+import java.awt.BorderLayout;
+
+import javax.swing.*;
+
+
+public class GUI extends JFrame {
+	
+	
+	private BorderLayout border;
+	private JPanel widgets, numberLine, bottomPanel;
+	
+	
+	public GUI() {
+		super("Number Line");
+		border = new BorderLayout();
+		numberLine = new NumberLine();
+		bottomPanel = new BottomPanel();
+		
+		setBounds(100, 100, 640, 200);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		NumberLine panel = new NumberLine();
+		add(panel, BorderLayout.CENTER);
+		add(bottomPanel, BorderLayout.SOUTH);
+		setResizable(true);
+	}
+}
