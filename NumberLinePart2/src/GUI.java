@@ -16,7 +16,8 @@ public class GUI extends JFrame {
 		border = new BorderLayout();
 		setLayout(border);
 		bottomPanel = new BottomPanel();
-		numberLine = new Drawing(bottomPanel);
+		numberLine = new Drawing();
+		bottomPanel.addControlListener(numberLine);
 		
 		
 		setBounds(100, 100, 640, 500);

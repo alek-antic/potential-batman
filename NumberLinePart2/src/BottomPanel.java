@@ -1,7 +1,13 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.TextAttribute;
+import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.management.AttributeList;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.event.ChangeEvent;
@@ -13,6 +19,7 @@ public class BottomPanel extends JPanel {
 	private JSlider slider;
 	private JCheckBox bold, italic, underline;
 	private JPanel lButtons, rButtons;
+	private ArrayList<ControlListener> listeners;
 
 	public BottomPanel() {
 
@@ -71,6 +78,12 @@ public class BottomPanel extends JPanel {
 		add(slider, BorderLayout.CENTER);
 		add(rButtons, BorderLayout.EAST);
 
+		listeners = new ArrayList<ControlListener>();
+		
+	}
+	
+	public void addControlListener(ControlListener l) {
+		listeners.add(l);
 	}
 
 	private class RadioHandler implements ActionListener {
@@ -80,11 +93,13 @@ public class BottomPanel extends JPanel {
 			Object source = e.getSource();
 
 			if (source == circle) {
-
+				for(ControlListener l : listeners) {
+					l.changeShape(new Ellipse2D.Double());
+				}
 			} else if (source == square) {
-
+				
 			} else {
-
+				
 			}
 		}
 
@@ -95,6 +110,9 @@ public class BottomPanel extends JPanel {
 		@Override
 		public void stateChanged(ChangeEvent e) {
 			
+			for(ControlListener l : listeners) {
+				l.changeLocation(slider.getValue());
+			}
 		}
 
 	}
@@ -103,14 +121,24 @@ public class BottomPanel extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Object source = e.getSource();
 
-			if (source == bold) {
-
-			} else if (source == italic) {
-
-			} else {
-
+			boolean[] pressed = new boolean[3];
+			pressed[0] = bold.isSelected();
+			pressed[1] = italic.isSelected();
+			pressed[2] = underline.isSelected();
+			
+			Map<TextAttribute, Object> fontStyle = new HashMap<TextAttribute, Object>();
+			fontStyle.put(TextAttribute.FAMILY, Font.SANS_SERIF);
+			fontStyle.put(TextAttribute.SIZE, 16);
+			if(pressed[2])
+				fontStyle.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+			if(pressed[1])
+				fontStyle.put(TextAttribute.POSTURE, TextAttribute.POSTURE_OBLIQUE);
+			if(pressed[0])
+				fontStyle.put(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
+			
+			for(ControlListener l : listeners) {
+				l.changeFontStyle(new Font(fontStyle));
 			}
 		}
 

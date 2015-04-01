@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 import javax.swing.*;
 
@@ -14,15 +15,19 @@ import javax.swing.*;
  *          Assignment - Name of Assignment
  *          Sources - List collaborators
  */
-public class Drawing extends JPanel {
+public class Drawing extends JPanel implements ControlListener {
 	
-	private BottomPanel panel;
+	private Font f;
+	private Shape shape;
+	private int location;
+	
 	
 
-	public Drawing(BottomPanel panel) {
+	public Drawing() {
 		super();
 		setBackground(Color.WHITE);
-		this.panel = panel;
+		f = new Font("SansSerif", 0, 16);
+		shape = new Ellipse2D.Double();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -33,18 +38,38 @@ public class Drawing extends JPanel {
 		
 		
 		g.setColor(Color.CYAN);
-		g.fillRect((int)(width/12.0), 95, (int)(width*10.0/12.0), 10);
+		g.fillRect((int)(width/10.0), 95, (int)(width*8.0/10.0), 10);
 		g.setColor(Color.BLACK);
-		g.drawLine((int)(width/12.0), 100, (int)(width*11.0/12), 100);
-		g.setFont(new Font("SansSerif", Font.BOLD, 17));
+		g.drawLine((int)(width/10.0), 100, (int)(width*9.0/10.0), 100);
+		g.setFont(f);
 		for(int i = 0; i <=10; i++) {
-			g.drawLine((int)(width/12.0 + width*i/12.0), 91, (int)(width/12.0 + width*i/12.0), 109);
+			g.drawLine((int)(width/10.0 + width*i*9/110.0), 91, (int)(width/10.0 + width*i*9/110.0), 109);
 			FontMetrics fm = g.getFontMetrics();
 			int w = fm.stringWidth(i*10+"");
-			g.drawString(i * 10 + "", (int)(width/12.0 + width*i/12.0 - w/2), 70);
+			g.drawString(i * 10 + "", (int)(width/10.0 + width*i*9/110.0 - w/2), 70);
 			
 			
 		}
+	}
+
+	@Override
+	public void changeShape(Shape s) {
+		shape = s;
+		repaint();
+		
+	}
+
+	@Override
+	public void changeLocation(int loc) {
+		location = loc;
+		repaint();
+		
+	}
+
+	@Override
+	public void changeFontStyle(Font font) {
+		f = font;
+		repaint();
 	}
 
 }

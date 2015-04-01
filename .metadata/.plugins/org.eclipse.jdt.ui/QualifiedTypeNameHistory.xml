@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Long"/>
 <fullyQualifiedTypeName name="KochSnowflake"/>
 <fullyQualifiedTypeName name="DragonCurve"/>
 <fullyQualifiedTypeName name="Statistics"/>
@@ -34,12 +33,10 @@
 <fullyQualifiedTypeName name="simschool.people.Person"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
 <fullyQualifiedTypeName name="simschool.usables.XMLTranslator"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="simschool.usables.Animal"/>
 <fullyQualifiedTypeName name="schoolobjects.LivingThing"/>
 <fullyQualifiedTypeName name="schoolobjects.animals.Pig"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="javax.swing.JSlider"/>
 <fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
 <fullyQualifiedTypeName name="java.awt.Component"/>
@@ -53,4 +50,14 @@
 <fullyQualifiedTypeName name="javax.swing.event.ChangeListener"/>
 <fullyQualifiedTypeName name="BottomPanel.CheckBoxHandler"/>
 <fullyQualifiedTypeName name="BottomPanel.SliderHandler"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="java.awt.Shape"/>
+<fullyQualifiedTypeName name="ControlListener"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.geom.Ellipse2D.Double"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="javax.management.AttributeList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.awt.font.TextAttribute"/>
+<fullyQualifiedTypeName name="java.awt.geom.Ellipse2D"/>
 </qualifiedTypeNameHistroy>

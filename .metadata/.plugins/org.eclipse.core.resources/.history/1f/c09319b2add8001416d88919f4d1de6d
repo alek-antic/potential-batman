@@ -1,0 +1,14 @@
+import java.awt.Font;
+
+
+public interface ControlListener {
+
+	public static final int CIRCLE = 0;
+	public static final int SQUARE = 4;
+	public static final int TRIANGLE = 3;
+	
+	public void changeShape(int shape);
+	public void changeLocation(int loc);
+	public void changeFontStyle(Font font);
+	
+}
