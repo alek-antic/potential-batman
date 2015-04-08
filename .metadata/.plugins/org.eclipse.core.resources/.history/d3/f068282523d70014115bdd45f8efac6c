@@ -1,8 +1,0 @@
-
-public interface ControlListener {
-
-	public void changeShape();
-	public void changeLocation();
-	public void changeFontStyle();
-	
-}

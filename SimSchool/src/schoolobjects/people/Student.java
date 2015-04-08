@@ -13,7 +13,8 @@ public class Student extends Person {
 	private double myGPA; // grade point average
 
 	// constructor
-	public Student(String name, int age, String gender, String idNum, double gpa) {
+	public Student(String name, int age, String gender, String idNum,
+			double gpa) {
 		// use the super class' constructor
 		super(name, age, gender);
 
@@ -42,18 +43,18 @@ public class Student extends Person {
 		return super.toString() + ", student id: " + myIdNum + ", gpa: "
 				+ myGPA;
 	}
-	
+
 	@Override
-	public void draw(DrawingTool marker, int x, int y) {
-		super.draw(marker,x,y);
+	public void draw(DrawingTool marker) {
+		super.draw(marker);
 		marker.up();
-		marker.move(x,y-75);
+		marker.move(getX(), getY() - 75);
 		marker.down();
 		marker.drawRect(37.5, 50);
-		
+
 		marker.up();
-		marker.move(x,y);
+		marker.move(getX(), getY());
 		marker.down();
-		
+
 	}
 }

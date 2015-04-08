@@ -1,0 +1,20 @@
+package gui;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class GUI extends JPanel {
+
+	private Sketch sketch;
+	private BottomPanel bp;
+	
+	public GUI() {
+		super();
+		sketch = new Sketch();
+		bp = new BottomPanel();
+		setLayout(new BorderLayout());
+		
+		
+	}
+	
+}

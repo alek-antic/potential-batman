@@ -1,0 +1,20 @@
+package gui;
+
+import java.util.ArrayList;
+
+import schoolobjects.animals.Pig;
+import schoolobjects.people.CollegeStudent;
+import schoolobjects.people.Person;
+import schoolobjects.people.Student;
+import schoolobjects.people.Teacher;
+import fileio.XMLTranslator;
+import gpdraw.*;
+
+
+public class SimSchool {
+
+	
+	public static void main(String[] args) {
+		
+	}
+}

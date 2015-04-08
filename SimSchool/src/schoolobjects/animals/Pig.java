@@ -10,7 +10,7 @@ public class Pig extends LivingThing implements Animal{
 
 	private String myType, mySound;
 	
-	public Pig() {
+	public Pig(String sound) {
 		myType = "pig";
 		mySound = "oink";
 	}
@@ -32,8 +32,8 @@ public class Pig extends LivingThing implements Animal{
 
 	
 	@Override
-	public void draw(DrawingTool marker, int x, int y) {
-		super.draw(marker,x,y);
+	public void draw(DrawingTool marker) {
+		super.draw(marker);
 		marker.setColor(new Color(255,125,125));
 		marker.fillOval(100, 50);
 		marker.up();
@@ -65,7 +65,7 @@ public class Pig extends LivingThing implements Animal{
 		marker.down();
 		marker.fillRect(35, 5);
 		marker.up();
-		marker.move(x+37.5,y-25);
+		marker.move(getX()+37.5,getY()-25);
 		marker.down();
 		marker.setColor(new Color(255,125,125));
 		marker.fillRect(12.5,25);

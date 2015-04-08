@@ -1,0 +1,18 @@
+package gui;
+
+import java.util.ArrayList;
+
+import schoolobjects.LivingThing;
+import fileio.XMLTranslator;
+import gpdraw.SketchPadPanel;
+
+public class Sketch extends SketchPadPanel{
+	
+	private ArrayList<LivingThing> livers;
+	
+	public Sketch() {
+		XMLTranslator trans = new XMLTranslator();
+		trans.readXML("data/simSchoolXML.xml");
+	}
+
+}

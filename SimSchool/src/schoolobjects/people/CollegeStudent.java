@@ -4,42 +4,42 @@ import gpdraw.DrawingTool;
 
 public class CollegeStudent extends Student {
 
-	
 	private String major;
 	private int year;
-	
-	public CollegeStudent(String name, int age, String gender, String iDNum, double gpa, int year, String major) {
+
+	public CollegeStudent(String name, int age, String gender, String iDNum,
+			double gpa, int year, String major) {
 		super(name, age, gender, iDNum, gpa);
 		this.major = major;
 		this.year = year;
 	}
-	
+
 	public int getYear() {
 		return year;
 	}
-	
+
 	public void setYear(int year) {
 		this.year = year;
 	}
-	
+
 	public String getMajor() {
 		return major;
 	}
-	
+
 	public void setMajor(String major) {
 		this.major = major;
 	}
-	
+
 	public String toString() {
-		return super.toString() + ", year: " + year +  ", major: " + major;
+		return super.toString() + ", year: " + year + ", major: " + major;
 	}
-	
+
 	@Override
-	public void draw(DrawingTool marker, int x, int y) {
-		super.draw(marker,x,y);
-		
+	public void draw(DrawingTool marker) {
+		super.draw(marker);
+
 		marker.up();
-		marker.move(x-25 * Math.sqrt(2), y+25 * Math.sqrt(2));
+		marker.move(getX() - 25 * Math.sqrt(2), getY() + 25 * Math.sqrt(2));
 		marker.down();
 		marker.setDirection(90);
 		marker.forward(25);
@@ -47,11 +47,10 @@ public class CollegeStudent extends Student {
 		marker.forward(70);
 		marker.setDirection(-90);
 		marker.forward(25);
-		
-		
-		//reset
+
+		// reset
 		marker.up();
-		marker.move(x,y);
+		marker.move(getX(), getY());
 		marker.down();
 	}
 }

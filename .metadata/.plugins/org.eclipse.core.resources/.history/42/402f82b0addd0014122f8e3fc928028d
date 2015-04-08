@@ -1,0 +1,7 @@
+package gui;
+
+import gpdraw.SketchPadPanel;
+
+public class Sketch extends SketchPadPanel{
+
+}

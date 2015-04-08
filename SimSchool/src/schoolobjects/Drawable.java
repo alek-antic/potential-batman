@@ -10,7 +10,7 @@ public interface Drawable {
 	 * @param x starting x-position of marker
 	 * @param y starting y-position of marker
 	 */
-	public void draw(DrawingTool marker, int x, int y);
+	public void draw(DrawingTool marker);
 	
 	
 }

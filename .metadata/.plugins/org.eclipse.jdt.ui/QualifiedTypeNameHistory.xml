@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="KochSnowflake"/>
-<fullyQualifiedTypeName name="DragonCurve"/>
-<fullyQualifiedTypeName name="Statistics"/>
-<fullyQualifiedTypeName name="ArrayReader"/>
 <fullyQualifiedTypeName name="Stats"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="ResizableArray"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="java.awt.geom.Point2D.Double"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="EraseObject"/>
 <fullyQualifiedTypeName name="java.io.File"/>
@@ -34,15 +29,12 @@
 <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
 <fullyQualifiedTypeName name="simschool.usables.XMLTranslator"/>
 <fullyQualifiedTypeName name="simschool.usables.Animal"/>
-<fullyQualifiedTypeName name="schoolobjects.LivingThing"/>
 <fullyQualifiedTypeName name="schoolobjects.animals.Pig"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="javax.swing.JSlider"/>
 <fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
 <fullyQualifiedTypeName name="java.awt.Component"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="javax.swing.border.Border"/>
 <fullyQualifiedTypeName name="javax.swing.border.EtchedBorder"/>
@@ -53,11 +45,19 @@
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="java.awt.Shape"/>
 <fullyQualifiedTypeName name="ControlListener"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.awt.geom.Ellipse2D.Double"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="javax.management.AttributeList"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.awt.font.TextAttribute"/>
 <fullyQualifiedTypeName name="java.awt.geom.Ellipse2D"/>
+<fullyQualifiedTypeName name="java.awt.geom.Point2D"/>
+<fullyQualifiedTypeName name="java.awt.geom.Point2D.Double"/>
+<fullyQualifiedTypeName name="schoolobjects.animals.Animal"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="gpdraw.SketchPadPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="fileio.XMLTranslator"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="schoolobjects.LivingThing"/>
 </qualifiedTypeNameHistroy>

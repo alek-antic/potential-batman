@@ -7,9 +7,9 @@ public class Cow extends LivingThing implements Animal {
 	private String myType;
 	private String mySound;
 
-	Cow() {
+	public Cow(String sound) {
 		myType = "cow";
-		mySound = "moo";
+		mySound = sound;
 	}
 
 	public String getSound() {
@@ -25,8 +25,8 @@ public class Cow extends LivingThing implements Animal {
 	}
 
 	@Override
-	public void draw(DrawingTool marker, int x, int y) {
-		super.draw(marker, x, y);
+	public void draw(DrawingTool marker) {
+		super.draw(marker);
 	}
 
 }
