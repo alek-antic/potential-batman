@@ -11,10 +11,13 @@ public class Sketch extends SketchPadPanel implements ControlListener {
 	private ArrayList<LivingThing> drawings;
 	
 	public Sketch(String filename) {
+		super(0);
 		XMLTranslator trans = new XMLTranslator();
 		trans.readXML(filename);
 		drawings = trans.getAlive();
 	}
+	
+	
 	
 	
 	@Override

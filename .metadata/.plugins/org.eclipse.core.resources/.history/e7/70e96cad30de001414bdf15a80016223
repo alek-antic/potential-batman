@@ -1,0 +1,34 @@
+package gui;
+
+import java.awt.BorderLayout;
+
+import gpdraw.*;
+
+public class SchoolWindow extends SketchPad {
+	
+	
+	private Sketch s;
+	private BottomPanel bp;
+	
+	public SchoolWindow(int x, int y, String filename) {
+		
+		
+		
+		super(x,y);
+		s = new Sketch(filename);
+		bp = new BottomPanel(s);
+		setLayout(new BorderLayout());
+		
+		add(s, BorderLayout.CENTER);
+		add(bp, BorderLayout.SOUTH);
+	
+		
+		remove(pad);
+		
+		setLayout(new BorderLayout());
+		pad = s;
+		add(pad, BorderLayout.CENTER);
+		add(bp, BorderLayout.SOUTH);
+	}
+	
+}

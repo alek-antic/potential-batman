@@ -1,0 +1,15 @@
+package gui;
+
+import gpdraw.*;
+
+public class SchoolWindow extends SketchPad {
+
+	public SchoolWindow(int x, int y, Sketch s, BottomPanel p) {
+		super(x,y);
+		
+		remove(pad);
+		
+		
+	}
+	
+}

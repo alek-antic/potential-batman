@@ -6,10 +6,11 @@ import gpdraw.DrawingTool;
 
 public abstract class LivingThing implements Drawable{
 
-	
+	private boolean selected;
 	private Point2D.Double location;
 
 	public LivingThing() {
+		selected = false;
 		location = new Point2D.Double();
 	}
 	
@@ -28,6 +29,10 @@ public abstract class LivingThing implements Drawable{
 	
 	public double getY() {
 		return location.getY();
+	}
+	
+	public void setSelected(boolean sel) {
+		selected = sel;
 	}
 	
 	@Override

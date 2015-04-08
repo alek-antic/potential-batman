@@ -1,0 +1,20 @@
+package gui;
+
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+import schoolobjects.LivingThing;
+
+public class BottomPanel extends JPanel {
+	
+	private ControlListener l;
+	private ArrayList<LivingThing> livers;
+
+	public BottomPanel(ControlListener listen) {
+		l = listen;
+		livers = l.getDrawings();
+		
+	}
+	
+}
