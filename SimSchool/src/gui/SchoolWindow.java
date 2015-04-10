@@ -39,7 +39,7 @@ public class SchoolWindow extends SketchPad {
 		int width = getWidth();
 		for(int i = 0; i < drawings.size(); i++) {
 			LivingThing lt = drawings.get(i);
-			lt.setX(-width-250+i*150);
+			lt.setX(-width/3.0 + i*150);
 			lt.draw(dt);
 		}
 	}

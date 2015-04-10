@@ -77,7 +77,6 @@ public class Sketch extends SketchPadPanel implements ControlListener {
 			if(thing != null)
 				if(key == KeyEvent.VK_ENTER)
 					JOptionPane.showConfirmDialog(Sketch.this, thing.toString(), "Info", JOptionPane.OK_OPTION);
-			
 		}
 
 		@Override
