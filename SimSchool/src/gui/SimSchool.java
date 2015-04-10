@@ -7,7 +7,5 @@ public class SimSchool {
 	
 	public static void main(String[] args) {
 		SchoolWindow window = new SchoolWindow(500, 500, new Sketch("data/simSchoolXML.xml"));
-		
-		window.setExtendedState(window.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 }

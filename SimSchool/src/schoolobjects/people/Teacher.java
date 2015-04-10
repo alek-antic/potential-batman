@@ -50,8 +50,6 @@ public class Teacher extends Person {
 		marker.drawCircle(6);
 
 		// reset
-		marker.up();
-		marker.move(getX(), getY());
-		marker.down();
+		super.draw(marker);
 	}
 }

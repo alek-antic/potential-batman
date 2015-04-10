@@ -1,0 +1,37 @@
+package gui;
+
+import java.util.ArrayList;
+
+import schoolobjects.LivingThing;
+import fileio.XMLTranslator;
+import gpdraw.SketchPadPanel;
+
+public class Sketch extends SketchPadPanel implements ControlListener {
+	
+	private ArrayList<LivingThing> drawings;
+	
+	public Sketch(String filename) {
+		super(0);
+		XMLTranslator trans = new XMLTranslator();
+		trans.readXML(filename);
+		drawings = trans.getAlive();
+	}
+	
+	
+	
+	
+	@Override
+	public ArrayList<LivingThing> getDrawings() {
+		return drawings;
+	}
+
+	
+	@Override
+	public void setSelected(LivingThing t, boolean selected) {
+		for(LivingThing thing : drawings)
+			if(t.equals(thing))
+				thing.setSelected(selected);
+		repaint();
+	}
+
+}

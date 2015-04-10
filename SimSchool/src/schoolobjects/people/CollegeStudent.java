@@ -49,8 +49,6 @@ public class CollegeStudent extends Student {
 		marker.forward(25);
 
 		// reset
-		marker.up();
-		marker.move(getX(), getY());
-		marker.down();
+		super.draw(marker);
 	}
 }

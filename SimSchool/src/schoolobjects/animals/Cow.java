@@ -27,6 +27,32 @@ public class Cow extends LivingThing implements Animal {
 	@Override
 	public void draw(DrawingTool marker) {
 		super.draw(marker);
+		marker.drawOval(150, 250);
+		marker.up();
+		marker.move(getX() + 45, getY() + 50);
+		marker.down();
+		marker.fillOval(50, 50);
+		marker.up();
+		marker.move(getX() - 45, getY() - 32);
+		marker.down();
+		marker.fillOval(37, 40);
+		marker.up();
+		marker.move(getX(), getY() + 150);
+		marker.down();
+		marker.drawOval(100, 50);
+		marker.up();
+		marker.move(marker.getXPos(), marker.getYPos() - 12);
+		marker.down();
+		marker.drawOval(37, 12);
+		marker.up();
+		marker.move(marker.getXPos() + 20, marker.getYPos() + 20);
+		marker.down();
+		marker.drawCircle(7.5);
+		marker.up();
+		marker.move(marker.getXPos()-40, marker.getYPos());
+		marker.down();
+		marker.drawCircle(7.5);
+		super.draw(marker);
 	}
 
 }

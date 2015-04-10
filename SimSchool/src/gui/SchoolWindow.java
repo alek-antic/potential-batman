@@ -3,6 +3,8 @@ package gui;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+
 import schoolobjects.LivingThing;
 import gpdraw.*;
 
@@ -15,7 +17,7 @@ public class SchoolWindow extends SketchPad {
 	public SchoolWindow(int x, int y, Sketch s) {
 		
 		super(x,y,s);
-		
+		setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		
 		this.s = s;
 		bp = new BottomPanel(s);
@@ -34,10 +36,10 @@ public class SchoolWindow extends SketchPad {
 		
 		DrawingTool dt = new DrawingTool(this);
 		ArrayList<LivingThing> drawings = s.getDrawings();
-		
+		int width = getWidth();
 		for(int i = 0; i < drawings.size(); i++) {
 			LivingThing lt = drawings.get(i);
-			lt.setX(i*100);
+			lt.setX(-width-250+i*150);
 			lt.draw(dt);
 		}
 	}

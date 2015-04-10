@@ -55,6 +55,7 @@ public class Student extends Person {
 		marker.up();
 		marker.move(getX(), getY());
 		marker.down();
+		super.draw(marker);
 
 	}
 }

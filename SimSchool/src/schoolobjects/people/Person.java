@@ -55,9 +55,7 @@ public class Person extends LivingThing implements Drawable {
 	@Override
 	public void draw(DrawingTool marker) {
 		//setup
-		marker.up();
-		marker.move(getX(),getY());
-		marker.down();
+		super.draw(marker);
 		
 		marker.drawCircle(50);
 		marker.up();
@@ -82,9 +80,7 @@ public class Person extends LivingThing implements Drawable {
 		marker.forward(66);
 		
 		//reset
-		marker.up();
-		marker.move(getX(),getY());
-		marker.down();
+		super.draw(marker);
 		
 	}
 }

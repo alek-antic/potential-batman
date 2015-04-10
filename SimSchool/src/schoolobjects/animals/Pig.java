@@ -89,5 +89,6 @@ public class Pig extends LivingThing implements Animal{
 		marker.move(25);
 		marker.down();
 		
+		super.draw(marker);
 	}
 }

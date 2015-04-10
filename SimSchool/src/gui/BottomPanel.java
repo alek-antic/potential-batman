@@ -30,19 +30,23 @@ public class BottomPanel extends JPanel {
 				buttons.add(new JRadioButton(((Person)alive).getName()));
 		}
 		
-		setLayout(new GridLayout(1,buttons.size()));
+		setLayout(new GridLayout(1,buttons.size() + 1));
 		
 		for(JRadioButton b : buttons) {
 			group.add(b);
 			add(b);
+			b.addActionListener(new RadioHandler());
 		}
+		add(new JLabel("Press \'ENTER\' for info"));
 	}
 	
 	private class RadioHandler implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			for(int i = 0; i < buttons.size(); i ++) {
+				l.setSelected(livers.get(i), buttons.get(i).isSelected());
+			}
 		}
 		
 	}

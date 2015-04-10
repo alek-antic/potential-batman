@@ -7,6 +7,6 @@ import schoolobjects.LivingThing;
 public interface ControlListener {
 
 	public ArrayList<LivingThing> getDrawings();
-	public void setSelected(LivingThing t);
+	public void setSelected(LivingThing t, boolean selected);
 	
 }
