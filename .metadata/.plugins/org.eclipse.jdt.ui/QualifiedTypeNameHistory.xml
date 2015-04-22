@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="Elevator"/>
-<fullyQualifiedTypeName name="info.gridworld.grid.Location"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Jumper"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.BoundedGrid"/>
 <fullyQualifiedTypeName name="simschool.usables.Drawable"/>
@@ -50,7 +49,6 @@
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="schoolobjects.LivingThing"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="gui.BottomPanel.RadioHandler"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyListener"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="info.girdworld.critters.ChameleonCritter"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="info.gridworld.grid.Location"/>
 </qualifiedTypeNameHistroy>
