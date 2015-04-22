@@ -1,0 +1,16 @@
+package info.girdworld.critters;
+
+import info.gridworld.grid.Location;
+
+import java.util.ArrayList;
+
+public class ChameleonKid extends ChameleonCritter {
+
+	
+	@Override
+	public ArrayList<Location> getActors(){
+		ArrayList<Location> frontback = new ArrayList<Location>();
+		frontback.add(getLocation().getAdjacentLocation(Location.AHEAD));
+		frontback.add(getLocation().getAdjacentLocation(Location.AHEAD-180));
+	}
+}

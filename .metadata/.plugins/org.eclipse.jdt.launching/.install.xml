@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-<entry loc="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home" stamp="1422769150000"/>
-<entry loc="/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home" stamp="1406304336000"/>
-<<<<<<< HEAD
-<entry loc="C:\Program Files (x86)\Java\jre7" stamp="1429717012287"/>
-=======
->>>>>>> 4e665d6b1ed1cdf136cd424aa8a8ec3ba190c88f
-<entry loc="/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home" stamp="1418879123000"/>
 <entry loc="C:\Program Files (x86)\Java\jre7" stamp="1408669381670"/>
 </dirs>
