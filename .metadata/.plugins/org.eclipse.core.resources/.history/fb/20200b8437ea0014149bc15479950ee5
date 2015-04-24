@@ -1,0 +1,13 @@
+package info.girdworld.critters;
+
+import info.gridworld.actor.Actor;
+
+import java.util.ArrayList;
+
+public class KingCrab extends CrabCritter {
+
+	@Override
+	public void processActors(ArrayList<Actor> actors) {
+		
+	}
+}

@@ -7,16 +7,20 @@ import java.util.ArrayList;
 
 public class ChameleonKid extends ChameleonCritter {
 
-	
 	@Override
-	public ArrayList<Actor> getActors(){
+	public ArrayList<Actor> getActors() {
 		ArrayList<Actor> frontback = new ArrayList<Actor>();
-		if(getLocation().getAdjacentLocation(Location.AHEAD) != null)
-			frontback.add(getGrid().get(getLocation().getAdjacentLocation(Location.AHEAD)));
-		if(getLocation().getAdjacentLocation(Location.HALF_CIRCLE) != null)
-			frontback.add(getGrid().get(getLocation().getAdjacentLocation(Location.HALF_CIRCLE)));
+		if (getGrid().isValid(getLocation().getAdjacentLocation(Location.AHEAD)) && getGrid().get(
+				getLocation().getAdjacentLocation(Location.AHEAD)) != null)
+			frontback.add(getGrid().get(
+					getLocation().getAdjacentLocation(Location.AHEAD)));
+		if (getGrid().isValid(getLocation().getAdjacentLocation(Location.HALF_CIRCLE))
+				&& getGrid()
+						.get(getLocation().getAdjacentLocation(
+								Location.HALF_CIRCLE)) != null)
+			frontback.add(getGrid().get(
+					getLocation().getAdjacentLocation(Location.HALF_CIRCLE)));
 		return frontback;
 	}
-	
-	
+
 }

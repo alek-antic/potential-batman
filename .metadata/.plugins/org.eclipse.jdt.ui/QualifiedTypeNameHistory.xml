@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="FileIO"/>
-<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.io.StringReader"/>
-<fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="Elevator"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Jumper"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.BoundedGrid"/>
@@ -58,6 +50,14 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="info.girdworld.critters.ChameleonCritter"/>
+<fullyQualifiedTypeName name="info.gridworl.actor.Critter"/>
+<fullyQualifiedTypeName name="info.gridworl.actor.Actor"/>
+<fullyQualifiedTypeName name="info.gridworl.actor.Rock"/>
+<fullyQualifiedTypeName name="info.gridworld.actor.Critter"/>
+<fullyQualifiedTypeName name="info.girdworld.critters.CrabCritter"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="info.gridworld.actor.Actor"/>
+<fullyQualifiedTypeName name="javax.tools.JavaFileManager.Location"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.Location"/>
 </qualifiedTypeNameHistroy>
