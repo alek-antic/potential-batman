@@ -33,8 +33,9 @@ public class BlusterCritter extends Critter {
 				if(actors.get(j).equals(actors.get(i)))
 					actors.remove(actors.get(i));
 			}
+			if(actors.get(j).equals(this))
+				actors.remove(j);
 		}
-		
 		
 		return actors;
 		
